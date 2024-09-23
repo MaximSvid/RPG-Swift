@@ -19,6 +19,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15542F192CA18ED5001644B5 /* Helden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helden.swift; sourceTree = "<group>"; };
+		15542F1A2CA19057001644B5 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		15542F1B2CA19168001644B5 /* Archer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
+		15542F1C2CA191D6001644B5 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		15542F1D2CA19E89001644B5 /* WarriorOpponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarriorOpponent.swift; sourceTree = "<group>"; };
+		15542F1E2CA19ECA001644B5 /* Gegner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gegner.swift; sourceTree = "<group>"; };
+		15542F1F2CA19F98001644B5 /* ArcherOpponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcherOpponent.swift; sourceTree = "<group>"; };
+		15542F202CA19FEB001644B5 /* DoctorOpponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorOpponent.swift; sourceTree = "<group>"; };
 		CE2F4BF62C9D636900643971 /* RPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPG; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -41,9 +49,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15542F152CA18CD1001644B5 /* Helden */ = {
+			isa = PBXGroup;
+			children = (
+				15542F1C2CA191D6001644B5 /* Doctor.swift */,
+				15542F1B2CA19168001644B5 /* Archer.swift */,
+				15542F1A2CA19057001644B5 /* Warrior.swift */,
+				15542F192CA18ED5001644B5 /* Helden.swift */,
+			);
+			path = Helden;
+			sourceTree = "<group>";
+		};
+		15542F162CA18CE1001644B5 /* Gegner */ = {
+			isa = PBXGroup;
+			children = (
+				15542F202CA19FEB001644B5 /* DoctorOpponent.swift */,
+				15542F1F2CA19F98001644B5 /* ArcherOpponent.swift */,
+				15542F1E2CA19ECA001644B5 /* Gegner.swift */,
+				15542F1D2CA19E89001644B5 /* WarriorOpponent.swift */,
+			);
+			path = Gegner;
+			sourceTree = "<group>";
+		};
+		15542F172CA18D15001644B5 /* Kampfsystem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Kampfsystem;
+			sourceTree = "<group>";
+		};
+		15542F182CA18D3B001644B5 /* Hilfsdateien */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Hilfsdateien;
+			sourceTree = "<group>";
+		};
 		CE2F4BED2C9D636900643971 = {
 			isa = PBXGroup;
 			children = (
+				15542F182CA18D3B001644B5 /* Hilfsdateien */,
+				15542F172CA18D15001644B5 /* Kampfsystem */,
+				15542F162CA18CE1001644B5 /* Gegner */,
+				15542F152CA18CD1001644B5 /* Helden */,
 				CE2F4BF82C9D636900643971 /* RPG */,
 				CE2F4BF72C9D636900643971 /* Products */,
 			);
@@ -250,7 +298,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -259,7 +312,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
