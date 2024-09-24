@@ -5,7 +5,7 @@
 //  Created by Maxim Svidrak on 23.09.24.
 //
 
-class Hero {
+class Hero: AttackOnEnemy {
     var name: String
         var HP: Int
         var attack: Int
@@ -18,11 +18,11 @@ class Hero {
         self.isLive = isLive
     }
         
-    func attackOnAllGegner(opponents: [Enemy]) {
+    func attackAllEnemies(enemies: [Enemy]) {
         let damage = 50
-        for opponent in opponents {
-            opponent.HP -= damage
-            print("\(name) attacked \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
+        for enemy in enemies {
+            enemy.HP -= damage
+            print("\(name) attacked \(enemy.name) and did \(damage) damage to him. \(enemy.name) has \(enemy.HP) health left.")
         }
     }
     

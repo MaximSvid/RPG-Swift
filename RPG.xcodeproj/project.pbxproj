@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15BD49792CA33D110052E5DA /* AttackOnEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8EEEF2CA33755002CEA5B /* AttackOnEnemy.swift */; };
+		15BD497A2CA33D1C0052E5DA /* AttackOnHeroes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8EEF02CA3376C002CEA5B /* AttackOnHeroes.swift */; };
 		15F8EEE62CA30721002CEA5B /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F192CA18ED5001644B5 /* Hero.swift */; };
 		15F8EEE72CA30761002CEA5B /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1E2CA19ECA001644B5 /* Enemy.swift */; };
 		15F8EEE82CA30771002CEA5B /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1A2CA19057001644B5 /* Warrior.swift */; };
@@ -39,6 +41,8 @@
 		15542F1F2CA19F98001644B5 /* ArcherOpponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcherOpponent.swift; sourceTree = "<group>"; };
 		15542F202CA19FEB001644B5 /* DoctorOpponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorOpponent.swift; sourceTree = "<group>"; };
 		15F8EED42CA2D247002CEA5B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		15F8EEEF2CA33755002CEA5B /* AttackOnEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackOnEnemy.swift; sourceTree = "<group>"; };
+		15F8EEF02CA3376C002CEA5B /* AttackOnHeroes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackOnHeroes.swift; sourceTree = "<group>"; };
 		CE2F4BF62C9D636900643971 /* RPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPG; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,17 +109,19 @@
 			path = Inventar;
 			sourceTree = "<group>";
 		};
-		15F8EEEE2CA30A79002CEA5B /* New Group */ = {
+		15F8EEEE2CA30A79002CEA5B /* protocol */ = {
 			isa = PBXGroup;
 			children = (
+				15F8EEF02CA3376C002CEA5B /* AttackOnHeroes.swift */,
+				15F8EEEF2CA33755002CEA5B /* AttackOnEnemy.swift */,
 			);
-			path = "New Group";
+			path = protocol;
 			sourceTree = "<group>";
 		};
 		CE2F4BED2C9D636900643971 = {
 			isa = PBXGroup;
 			children = (
-				15F8EEEE2CA30A79002CEA5B /* New Group */,
+				15F8EEEE2CA30A79002CEA5B /* protocol */,
 				158DA5502CA1E63700E952E1 /* Inventar */,
 				15542F182CA18D3B001644B5 /* Hilfsdateien */,
 				15542F172CA18D15001644B5 /* Kampfsystem */,
@@ -200,8 +206,10 @@
 			files = (
 				15F8EEE62CA30721002CEA5B /* Hero.swift in Sources */,
 				15F8EEED2CA3079E002CEA5B /* DoctorOpponent.swift in Sources */,
+				15BD49792CA33D110052E5DA /* AttackOnEnemy.swift in Sources */,
 				15F8EEEA2CA30789002CEA5B /* Doctor.swift in Sources */,
 				15F8EEE82CA30771002CEA5B /* Warrior.swift in Sources */,
+				15BD497A2CA33D1C0052E5DA /* AttackOnHeroes.swift in Sources */,
 				15F8EEE72CA30761002CEA5B /* Enemy.swift in Sources */,
 				15F8EEE92CA30780002CEA5B /* Archer.swift in Sources */,
 				15F8EEEB2CA30790002CEA5B /* WarriorOpponent.swift in Sources */,
