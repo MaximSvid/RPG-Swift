@@ -16,13 +16,13 @@ class Warrior: Hero {
     
     func warriorAttack (opponent: Enemy) {
         let damage = attack
-        var attack = opponent.HP - damage
+        _ = opponent.HP - damage
         print("\(name) attacked \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
     }
     
     func dualWarriorAttck (opponent: Enemy) {
         let damage = attack * 2
-        var attack = opponent.HP - damage
+        _ = opponent.HP - damage
         print("\(name) attacked with dual attack \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
     }
     

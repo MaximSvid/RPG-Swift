@@ -25,15 +25,18 @@ class BattleLogic {
     func playRound () {
         var roundNumber: Int = 1
         startGameMessage()
+        print("-----------------------------------------------------")
+        chooseTeam()
+        print("-----------------------------------------------------")
         
-        while(!endGameCheck()) {
-            
-            print("\n✨ Round \(roundNumber) Begins! ✨")
-            print("-----------------------------------------------------")
-            
-            characterStatus()
-            
-        }
+//        while(!endGameCheck()) {
+//            
+//            print("\n✨ Round \(roundNumber) Begins! ✨")
+//            print("-----------------------------------------------------")
+//            
+//            characterStatus()
+//            
+//        }
     }
     
     func endGameCheck() -> Bool {
@@ -97,4 +100,33 @@ class BattleLogic {
         Let the battle begin! Who will prevail? ⚔️🔥
         """)
     }
+    
+    func chooseTeam() {
+        print("🌟 Choose Your Team 🌟")
+        print("1. ⚔️ Heroes")
+        print("2. 💪 Enemies")
+        print("Please enter the number of your choice:")
+
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                print("🎉 You have chosen the Heroes team! 🎉")
+                print("Here are your brave heroes:")
+                for hero in heroArray {
+                    print("💪 \(hero.name) - HP: \(hero.HP) 🛡️")
+                }
+            case "2":
+                print("👾 You have chosen the Enemies team! 👾")
+                print("Beware of these foes:")
+                for enemy in enemyArray {
+                    print("⚔️ \(enemy.name) - HP: \(enemy.HP) ⚔️")
+                }
+            default:
+                print("❌ Invalid choice. Please select 1 for Heroes or 2 for Enemies. ❌")
+                chooseTeam() // Запросить выбор снова
+            }
+        }
+    }
+    
+    
 }
