@@ -27,6 +27,7 @@
 		15542F1E2CA19ECA001644B5 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		15542F1F2CA19F98001644B5 /* ArcherOpponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcherOpponent.swift; sourceTree = "<group>"; };
 		15542F202CA19FEB001644B5 /* DoctorOpponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorOpponent.swift; sourceTree = "<group>"; };
+		15F8EED42CA2D247002CEA5B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		CE2F4BF62C9D636900643971 /* RPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPG; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +89,7 @@
 		158DA5502CA1E63700E952E1 /* Inventar */ = {
 			isa = PBXGroup;
 			children = (
+				15F8EED42CA2D247002CEA5B /* Weapon.swift */,
 			);
 			path = Inventar;
 			sourceTree = "<group>";

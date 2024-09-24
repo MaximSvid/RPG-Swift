@@ -6,7 +6,6 @@
 //
 
 class DoctorOpponent: Enemy {
-    
     var superAttackUsed: Bool = false // Свойство для отслеживания, была ли выполнена супер атака
     
     
