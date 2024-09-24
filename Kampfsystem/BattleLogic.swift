@@ -7,7 +7,7 @@
 
 class BattleLogic {
     var heroWarrior = Warrior (name: "King Artur", HP: 200, attack: 35, isLive: true, twoAttack: 3)
-    var heroArcher = Archer (name: "Falconer", HP: 130, attack: 30, isLive: true, shadow: false)
+    var heroArcher = Archer (name: "Falconer", HP: 130, attack: 30, isLive: true, shadow: 2)
     var heroDoctor = Doctor (name: "Tim", HP: 100, attack: 50, isLive: true, strengthVaccine: false)
     
     var enemyWarrior = WarriorOpponent(name: "Goliaf", HP: 250, attack: 50, isLive: true)
@@ -140,14 +140,15 @@ class BattleLogic {
                 
                 // Проверяем, есть ли живые враги
                 if let opponent = aliveEnemies.randomElement() {
-                    // Проверяем, является ли герой воином
+                    // Проверяем тип героя
                     if let warrior = hero as? Warrior {
                         // Вызываем метод атаки для выбранного врага
-                        warrior.chooseAttackWarrior(opponent: opponent, bag: bag) // Используем экземпляр bag
+                        warrior.chooseAttackWarrior(opponent: opponent, bag: bag)
+                    } else if let archer = hero as? Archer {
+                        archer.chooseAttackArcher(opponent: opponent, enemies: enemyArray, bag: bag)
                     }
                 }
             }
         }
     }
-    
 }

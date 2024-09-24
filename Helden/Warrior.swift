@@ -31,11 +31,11 @@ class Warrior: Hero {
         let success = Bool.random() // true or false
         
         if success {
-                opponent.HP -= damage
-                print("\(opponent.name) was hit by a dangerous attack, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP left.")
-            } else {
-                print("\(opponent.name) dodged the dangerous attack and took no damage.")
-            }
+            opponent.HP -= damage
+            print("\(opponent.name) was hit by a dangerous attack, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP left.")
+        } else {
+            print("\(opponent.name) dodged the dangerous attack and took no damage.")
+        }
     }
     //protocol in super class Hero
     override func attackAllEnemies(enemies: [Enemy]) {
@@ -43,79 +43,81 @@ class Warrior: Hero {
     }
     
     func chooseAttackWarrior(opponent: Enemy, bag: HeroesBag) {
-            print("\n🔪 \(name) is preparing to attack! Choose an action:")
-            print("[1] ⚔️ Basic Attack")
-            print("[2] ⚔️ Dual Attack")
-            print("[3] ⚔️ Dangerous Attack")
-            
-            // Проверяем наличие зелий в рюкзаке перед добавлением опции использования зелий
-            if bag.healing > 0 || bag.power > 0 {
-                print("[4] 🎒 Use Bag")
-            }
-
-            if let choice = readLine() {
-                switch choice {
-                case "1":
-                    warriorAttack(opponent: opponent)
-                case "2":
-                    dualWarriorAttck(opponent: opponent)
-                case "3":
-                    dangerousAttack(opponent: opponent)
-                case "4":
-                    if bag.healing > 0 || bag.power > 0 {
-                        useBag(opponent: opponent, bag: bag)
-                    } else {
-                        print("🚫 No potions available to use!")
-                        chooseAttackWarrior(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
-                    }
-                default:
-                    print("🚫 Invalid choice. Please choose again.")
+        print("\n🔪 \(name) is preparing to attack! Choose an action:")
+        print("[1] ⚔️ Basic Attack")
+        print("[2] ⚔️ Dual Attack")
+        print("[3] ⚔️ Dangerous Attack")
+        
+        // Проверяем наличие зелий в рюкзаке перед добавлением опции использования зелий
+        if bag.healing > 0 || bag.power > 0 {
+            print("[4] 🎒 Use Bag")
+        }
+        
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                warriorAttack(opponent: opponent)
+            case "2":
+                dualWarriorAttck(opponent: opponent)
+            case "3":
+                dangerousAttack(opponent: opponent)
+            case "4":
+                if bag.healing > 0 || bag.power > 0 {
+                    useBag(opponent: opponent, bag: bag)
+                } else {
+                    print("🚫 No potions available to use!")
                     chooseAttackWarrior(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
                 }
+            default:
+                print("🚫 Invalid choice. Please choose again.")
+                chooseAttackWarrior(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
             }
         }
-
-        func useBag(opponent: Enemy, bag: HeroesBag) {
-            print("\n🎒 Choose an item to use:")
-            
-            if bag.healing > 0 {
-                print("[1] 💊 Use Healing Potion")
-            }
-            
-            if bag.power > 0 {
-                print("[2] ⚡ Use Strength Potion")
-            }
-
-            // Если оба зелья закончились
-            if bag.healing == 0 && bag.power == 0 {
-                    print("🚫 No potions available to use!")
-                    // Возврат к выбору атаки
-                chooseAttackWarrior(opponent: opponent, bag: bag)
-                    return
-            }
-
-            if let choice = readLine() {
-                switch choice {
-                case "1":
-                    if bag.healing > 0 {
-                        bag.useHealing(hero: self)
-                    } else {
-                        print("🚫 No healing potions available!")
-                        useBag(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
-                    }
-                case "2":
-                    if bag.power > 0 {
-                        bag.usePower(hero: self)
-                    } else {
-                        print("🚫 No strength potions available!")
-                        useBag(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
-                    }
-                default:
-                    print("🚫 Invalid choice. Please choose again.")
+    }
+    
+    func useBag(opponent: Enemy, bag: HeroesBag) {
+        print("\n🎒 Choose an item to use:")
+        
+        if bag.healing > 0 {
+            print("[1] 💊 Use Healing Potion")
+        }
+        
+        if bag.power > 0 {
+            print("[2] ⚡ Use Strength Potion")
+        }
+        
+        // Если оба зелья закончились
+        if bag.healing == 0 && bag.power == 0 {
+            print("🚫 No potions available to use!")
+            // Возврат к выбору атаки
+            chooseAttackWarrior(opponent: opponent, bag: bag)
+            return
+        }
+        
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                if bag.healing > 0 {
+                    bag.useHealing(hero: self)
+                } else {
+                    print("🚫 No healing potions available!")
                     useBag(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
                 }
+            case "2":
+                if bag.power > 0 {
+                    bag.usePower(hero: self)
+                } else {
+                    print("🚫 No strength potions available!")
+                    useBag(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
+                }
+            default:
+                print("🚫 Invalid choice. Please choose again.")
+                useBag(opponent: opponent, bag: bag) // Повторный вызов для нового выбора
             }
         }
+    }
+    
+    
     
     
     
