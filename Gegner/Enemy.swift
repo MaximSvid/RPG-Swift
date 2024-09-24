@@ -11,7 +11,7 @@ class Enemy {
         var attack: Int
         var isLive: Bool = true
     
-    init(name: String, HP: Int, attack: Int, var isLive: Bool) {
+    init(name: String, HP: Int, attack: Int, isLive: Bool) {
         self.name = name
         self.HP = HP
         self.attack = attack

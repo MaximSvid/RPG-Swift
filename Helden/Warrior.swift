@@ -10,8 +10,8 @@ class Warrior: Hero {
     
     
     init(name: String, HP: Int, attack: Int, isLive: Bool, twoAttack: Int) {
-        self.dualAttack = dualAttack
-        super.init(name: name, HP: HP, attack: attack, isLive: Bool)
+        self.dualAttack = twoAttack
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
     }
     
     func warriorAttack (opponent: Enemy) {

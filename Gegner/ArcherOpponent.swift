@@ -10,11 +10,11 @@ class ArcherOpponent: Enemy {
     
     init(name: String, HP: Int, attack: Int, isLive: Bool, isFreeze: Bool) {
         self.isFreeze = isFreeze
-        super.init(name: name, HP: HP, attack: attack, isLive: Bool)
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
     }
     
     //атака на всех противников
-    func attackOnAllHeroes (heroes: [Hero]) {
+    override func attackOnAllHeroes (heroes: [Hero]) {
         let damage = 50
         for hero in heroes {
             hero.HP -= damage

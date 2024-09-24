@@ -9,8 +9,8 @@ class DoctorOpponent: Enemy {
     var superAttackUsed: Bool = false // Свойство для отслеживания, была ли выполнена супер атака
     
     
-    init(name: String, HP: Int, attack: Int, isLive: Bool) {
-        super.init(name: name, HP: HP, attack: attack, isLive: Bool)
+    override init(name: String, HP: Int, attack: Int, isLive: Bool) {
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
     }
     
     // Супер сильная атака (можно выполнить только один раз за игру)
@@ -32,10 +32,10 @@ class DoctorOpponent: Enemy {
         print("\(name) heals \(target.name) for \(healingAmount) HP. \(target.name) now has \(target.HP) HP.")
     }
     
-    func healAllOpponent(opponents: [Enemy]) {
+    func healAllOpponents(opponents: [Enemy]) {
         let recoveryAmount = 30
         for opponent in opponents {
-            opponent.HP +=recoveryAmount
+            opponent.HP += recoveryAmount // Исправлено, чтобы правильно увеличивать HP
             print("\(name) heals \(opponent.name) for \(recoveryAmount) HP, now \(opponent.name) has \(opponent.HP) HP.")
         }
     }

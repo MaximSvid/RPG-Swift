@@ -105,9 +105,17 @@
 			path = Inventar;
 			sourceTree = "<group>";
 		};
+		15F8EEEE2CA30A79002CEA5B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		CE2F4BED2C9D636900643971 = {
 			isa = PBXGroup;
 			children = (
+				15F8EEEE2CA30A79002CEA5B /* New Group */,
 				158DA5502CA1E63700E952E1 /* Inventar */,
 				15542F182CA18D3B001644B5 /* Hilfsdateien */,
 				15542F172CA18D15001644B5 /* Kampfsystem */,

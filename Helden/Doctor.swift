@@ -11,7 +11,7 @@ class Doctor: Hero {
     
     init(name: String, HP: Int, attack: Int, isLive: Bool,strengthVaccine: Bool ) {
         self.strengthVaccine = strengthVaccine
-        super.init(name: name, HP: HP, attack: attack, isLive: Bool)
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
     }
     
     //Angriffsverringerungsfunktion um 30

@@ -9,7 +9,7 @@ class Archer: Hero {
     
     init(name: String, HP: Int, attack: Int, isLive: Bool, shadow: Bool) {
         self.shadow = shadow
-        super.init(name: name, HP: HP, attack: attack, isLive: Bool)
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
     }
     
     //test
@@ -41,10 +41,9 @@ class Archer: Hero {
         }
     }
     
-    func sharpArrow (opponents: Enemy) {
+    func sharpArrow(opponent: Enemy) { // Изменено на opponent
         let damage = 60
-        opponents.HP -= damage
+        opponent.HP -= damage // Используем opponent вместо opponents
         print("\(opponent.name) was hit by a sharp arrow, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP left.")
-        
     }
 }
