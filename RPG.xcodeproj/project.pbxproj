@@ -6,6 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		15F8EEE62CA30721002CEA5B /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F192CA18ED5001644B5 /* Hero.swift */; };
+		15F8EEE72CA30761002CEA5B /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1E2CA19ECA001644B5 /* Enemy.swift */; };
+		15F8EEE82CA30771002CEA5B /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1A2CA19057001644B5 /* Warrior.swift */; };
+		15F8EEE92CA30780002CEA5B /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1B2CA19168001644B5 /* Archer.swift */; };
+		15F8EEEA2CA30789002CEA5B /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1C2CA191D6001644B5 /* Doctor.swift */; };
+		15F8EEEB2CA30790002CEA5B /* WarriorOpponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1D2CA19E89001644B5 /* WarriorOpponent.swift */; };
+		15F8EEEC2CA30798002CEA5B /* ArcherOpponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F1F2CA19F98001644B5 /* ArcherOpponent.swift */; };
+		15F8EEED2CA3079E002CEA5B /* DoctorOpponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15542F202CA19FEB001644B5 /* DoctorOpponent.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		CE2F4BF42C9D636900643971 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -179,6 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F8EEE62CA30721002CEA5B /* Hero.swift in Sources */,
+				15F8EEED2CA3079E002CEA5B /* DoctorOpponent.swift in Sources */,
+				15F8EEEA2CA30789002CEA5B /* Doctor.swift in Sources */,
+				15F8EEE82CA30771002CEA5B /* Warrior.swift in Sources */,
+				15F8EEE72CA30761002CEA5B /* Enemy.swift in Sources */,
+				15F8EEE92CA30780002CEA5B /* Archer.swift in Sources */,
+				15F8EEEB2CA30790002CEA5B /* WarriorOpponent.swift in Sources */,
+				15F8EEEC2CA30798002CEA5B /* ArcherOpponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

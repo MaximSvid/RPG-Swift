@@ -6,9 +6,9 @@
 //
 
 class Hero {
-    var name: String,
-        var HP: Int,
-        var attack: Int,
+    var name: String
+        var HP: Int
+        var attack: Int
         var isLive: Bool = true
     
     init(name: String, HP: Int, attack: Int, isLive: Bool) {
