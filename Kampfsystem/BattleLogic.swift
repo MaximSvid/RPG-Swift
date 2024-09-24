@@ -23,20 +23,24 @@ class BattleLogic {
     }
     
     func playRound () {
+        let heroesBag = HeroesBag(healing: 4, power: 2) // Инициализация сумки с 4 зельями лечения и 2 зельями силы
         var roundNumber: Int = 1
         startGameMessage()
         print("-----------------------------------------------------")
         chooseTeam()
         print("-----------------------------------------------------")
         
-//        while(!endGameCheck()) {
-//            
-//            print("\n✨ Round \(roundNumber) Begins! ✨")
-//            print("-----------------------------------------------------")
-//            
-//            characterStatus()
-//            
-//        }
+        while(!endGameCheck()) {
+            
+            print("\n✨ Round \(roundNumber) Begins! ✨")
+            print("-----------------------------------------------------")
+            
+            characterStatus()
+            
+            heroesAttack(bag: heroesBag)
+            
+//            1exit(0)
+        }
     }
     
     func endGameCheck() -> Bool {
@@ -106,7 +110,7 @@ class BattleLogic {
         print("1. ⚔️ Heroes")
         print("2. 💪 Enemies")
         print("Please enter the number of your choice:")
-
+        
         if let choice = readLine() {
             switch choice {
             case "1":
@@ -128,5 +132,22 @@ class BattleLogic {
         }
     }
     
+    func heroesAttack(bag: HeroesBag) {
+        for hero in heroArray {
+            if hero.HP > 0 {
+                // Фильтруем врагов, оставляя только тех, у кого HP больше 0
+                let aliveEnemies = enemyArray.filter { $0.HP > 0 }
+                
+                // Проверяем, есть ли живые враги
+                if let opponent = aliveEnemies.randomElement() {
+                    // Проверяем, является ли герой воином
+                    if let warrior = hero as? Warrior {
+                        // Вызываем метод атаки для выбранного врага
+                        warrior.chooseAttackWarrior(opponent: opponent, bag: bag) // Используем экземпляр bag
+                    }
+                }
+            }
+        }
+    }
     
 }
