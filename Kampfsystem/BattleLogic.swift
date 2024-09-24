@@ -146,6 +146,8 @@ class BattleLogic {
                         warrior.chooseAttackWarrior(opponent: opponent, bag: bag)
                     } else if let archer = hero as? Archer {
                         archer.chooseAttackArcher(opponent: opponent, enemies: enemyArray, bag: bag)
+                    } else if let doctor = hero as? Doctor {
+                        doctor.chooseAttackDoctor(opponent: opponent, bag: bag, heroes: heroArray)
                     }
                 }
             }

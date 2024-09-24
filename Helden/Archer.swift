@@ -45,10 +45,10 @@ class Archer: Hero {
     }
     
     func chooseAttackArcher(opponent: Enemy, enemies: [Enemy], bag: HeroesBag) {
-        print("\n🔪 \(name) is preparing to attack! Choose an action:")
-        print("[1] ⚔️ Attack on all Enemies")
-        print("[2] ⚔️ Sharp Arrow")
-        print("[3] ⚔️ Archer i1n Shadow")
+        print("\n🏹 \(name) is preparing to attack! Choose an action:") 
+        print("[1] 🌪️ Rain of Arrows on All Enemies")
+        print("[2] 🏹 Sharp Arrow")
+        print("[3] 🌑 Archer in Shadow")
         
         // Проверяем наличие зелий в рюкзаке перед добавлением опции использования зелий
         if bag.healing > 0 || bag.power > 0 {
