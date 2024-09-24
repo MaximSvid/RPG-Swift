@@ -30,7 +30,7 @@ class Doctor: Hero {
     }
     
     func doctorAttack(opponent: Enemy)  {
-        let damage = 40
+        let damage = attack
         opponent.HP -= damage
         print("\(opponent.name) was struck by the Doctor, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP remaining.")
 

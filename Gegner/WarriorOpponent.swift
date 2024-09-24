@@ -7,19 +7,17 @@
 
 class WarriorOpponent: Enemy {
     
-    init(name: String, HP: Int, attack: Int, isLive: Bool) {
-        super.init(name: name, HP: HP, attack: attack, isLive: Bool)
+    override init(name: String, HP: Int, attack: Int, isLive: Bool) {
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
     }
     
-    func warriorOpponentAttack (hero: Hero) {
-        let damage = 40
-        var attack = opponent.HP - damage
-        print("\(name) attacked \(hero.name) and did \(damage) damage to him. \(hero.name) has \(hero.HP) health left.")
+    override func attckWithWeapon(hero: Hero) {
+        super.attckWithWeapon(hero: hero)
     }
     
     //?
     func dangerousOpponentAttack(heroes: [Hero])  {
-        let damage = 60
+        let damage = attack
         let singleAttackTarget = heroes.randomElement() // Select a random hero for the attack
         let hitAll = Int.random(in: 1...100) <= 20 // 20% chance to attack all heroes
         

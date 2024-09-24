@@ -33,16 +33,13 @@ class Archer: Hero {
     
     
     //атака на всех противников
-    func attackOnAllOpponent (opponents: [Enemy]) {
-        let damage = 40
-        for opponent in opponents {
-            opponent.HP -= damage
-            print("\(name) attacked \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
-        }
+    override func attackAllEnemies(enemies: [Enemy]) {
+        super.attackAllEnemies(enemies: enemies)
     }
+
     
     func sharpArrow(opponent: Enemy) { // Изменено на opponent
-        let damage = 60
+        let damage = attack
         opponent.HP -= damage // Используем opponent вместо opponents
         print("\(opponent.name) was hit by a sharp arrow, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP left.")
     }

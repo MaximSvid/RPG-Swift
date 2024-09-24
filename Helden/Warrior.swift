@@ -15,19 +15,19 @@ class Warrior: Hero {
     }
     
     func warriorAttack (opponent: Enemy) {
-        let damage = 50
+        let damage = attack
         var attack = opponent.HP - damage
         print("\(name) attacked \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
     }
     
     func dualWarriorAttck (opponent: Enemy) {
-        let damage = 50 * 2
+        let damage = attack * 2
         var attack = opponent.HP - damage
         print("\(name) attacked with dual attack \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
     }
     
     func dangerousAttack(opponent: Enemy)  {
-        let damage = 150
+        let damage = attack * 4
         let success = Bool.random() // true or false
         
         if success {
@@ -36,6 +36,10 @@ class Warrior: Hero {
             } else {
                 print("\(opponent.name) dodged the dangerous attack and took no damage.")
             }
+    }
+    //protocol in super class Hero
+    override func attackAllEnemies(enemies: [Enemy]) {
+        super.attackAllEnemies(enemies: enemies)
     }
     
 }

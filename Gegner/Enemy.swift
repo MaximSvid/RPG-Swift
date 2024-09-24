@@ -5,7 +5,7 @@
 //  Created by Maxim Svidrak on 23.09.24.
 //
 
-class Enemy {
+class Enemy: AttackOnHeroes {
     var name: String
         var HP: Int
         var attack: Int
@@ -17,6 +17,14 @@ class Enemy {
         self.attack = attack
         self.isLive = isLive
     }
+    
+    //protocol
+    func attckWithWeapon (hero: Hero) {
+        let damage = 35
+        var attack = hero.HP - damage
+        print("\(name) attacked \(hero.name) and did \(damage) damage to him. \(hero.name) has \(hero.HP) health left.")
+    }
+    
     
     //функция атаки на всех героев
     func attackOnAllHeroes(heroes: [Hero]) {

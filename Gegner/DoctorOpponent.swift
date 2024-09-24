@@ -16,7 +16,7 @@ class DoctorOpponent: Enemy {
     // Супер сильная атака (можно выполнить только один раз за игру)
     func superAttack(target: Hero) {
         if !superAttackUsed {
-            let superDamage = 200
+            let superDamage = attack * 5
             target.HP -= superDamage
             superAttackUsed = true // Устанавливаем флаг, что супер атака была использована
             print("\(name) uses a powerful super attack on \(target.name), dealing \(superDamage) damage! \(target.name) now has \(target.HP) HP left.")
