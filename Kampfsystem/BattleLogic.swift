@@ -21,4 +21,80 @@ class BattleLogic {
         heroArray = [heroWarrior, heroArcher, heroDoctor]
         enemyArray = [enemyWarrior, enemyArcher, enemyDortor]
     }
+    
+    func playRound () {
+        var roundNumber: Int = 1
+        startGameMessage()
+        
+        while(!endGameCheck()) {
+            
+            print("\n✨ Round \(roundNumber) Begins! ✨")
+            print("-----------------------------------------------------")
+            
+            characterStatus()
+            
+        }
+    }
+    
+    func endGameCheck() -> Bool {
+        // Check if hero or enemy array is empty
+        if heroArray.isEmpty || enemyArray.isEmpty {
+            print("💥 Game Over: One of the lists is empty. The battle has ended!")
+            return true
+        }
+        
+        // Check if all heroes are dead
+        let allHeroesDead = heroArray.allSatisfy { $0.HP <= 0 }
+        // Check if all enemies are dead
+        let allEnemiesDead = enemyArray.allSatisfy { $0.HP <= 0 }
+        
+        // If all heroes or all enemies are dead
+        if allHeroesDead {
+            print("⚔️ Game Over: All heroes have fallen in battle. The realm is lost! ⚔️")
+            return true
+        } else if allEnemiesDead {
+            print("🏆 Game Over: All enemies have been defeated! Victory is ours! 🎉")
+            return true
+        }
+        
+        // If none of the conditions are met, the game continues
+        return false
+    }
+    
+    func characterStatus () {
+        print("\nHeroes' status:")
+        for hero in heroArray {
+            if hero.HP > 0 {
+                print("\(hero.name) has \(hero.HP) HP remaining.")
+            }
+        }
+        
+        print("\nEnemies' status:")
+        for enemy in enemyArray {
+            if enemy.HP > 0 {
+                print("\(enemy.name) has \(enemy.HP) HP remaining.")
+            }
+            
+        }
+        print("")  // Пустая строка для удобства чтения
+    }
+    
+    func startGameMessage() {
+        print("""
+        ⚔️ Welcome to the Battle Arena! ⚔️
+        Today, legendary heroes will face deadly enemies in an epic fight for survival!
+        
+        🎖️ Our Heroes 🎖️
+        🛡️ Warrior: King Arthur, with \(heroWarrior.HP) HP and \(heroWarrior.attack) attack power.
+        🏹 Archer: Falconer, with \(heroArcher.HP) HP, sharp arrows, and shadow stealth.
+        💉 Doctor: Tim, with \(heroDoctor.HP) HP, ready to heal and shield the team from damage.
+        
+        ⚔️ The Enemies ⚔️
+        🛡️ Enemy Warrior: Goliath, towering with \(enemyWarrior.HP) HP and a brutal attack of \(enemyWarrior.attack).
+        🏹 Enemy Archer: Shooter, lurking with \(enemyArcher.HP) HP, armed with deadly precision.
+        💉 Enemy Doctor: Mariarti, with \(enemyDortor.HP) HP, will stop at nothing to keep his evil allies alive.
+        
+        Let the battle begin! Who will prevail? ⚔️🔥
+        """)
+    }
 }

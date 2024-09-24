@@ -1,4 +1,4 @@
 import Foundation
 
-print("Hello, World!")
-
+let game = BattleLogic()
+game.playRound()
