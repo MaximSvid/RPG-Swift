@@ -36,7 +36,6 @@ class Warrior: Hero {
             } else {
                 print("\(opponent.name) dodged the dangerous attack and took no damage.")
             }
-        
     }
     
 }

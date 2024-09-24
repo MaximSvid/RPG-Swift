@@ -13,11 +13,30 @@ class ArcherOpponent: Enemy {
         super.init(name: name, HP: HP, attack: attack, isLive: Bool)
     }
     
+    //атака на всех противников
+    func attackOnAllHeroes (heroes: [Hero]) {
+        let damage = 50
+        for hero in heroes {
+            hero.HP -= damage
+            print("\(name) attacked \(hero.name) and did \(damage) damage to him. \(hero.name) has \(hero.HP) health left.")
+        }
+    }
+    
+    func sharpArrowOpponent (hero: Hero) {
+        let damage = 70
+        hero.HP -= damage
+        print("\(hero.name) was hit by a sharp arrow, taking \(damage) damage. \(hero.name) now has \(hero.HP) HP left.")
+        
+    }
+    
+    
+    //?
     func iceArrow(target: Hero)  {
         let damage = 30
         isFreeze = true
+        
     }
-
+    
     
 }
 
