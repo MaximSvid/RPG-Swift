@@ -29,7 +29,7 @@ class Hero: AttackOnEnemy {
     }
     
     
-    // Проверка жизн
+    // Проверка жизни
     func checkIfAlive() {
         if HP <= 0 {
             isLive = false
