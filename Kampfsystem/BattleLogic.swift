@@ -39,6 +39,10 @@ class BattleLogic {
             
             heroesAttack(bag: heroesBag)
             
+            randomOpponentAttack()
+            
+            roundNumber += 1
+            
 //            1exit(0)
         }
     }
@@ -150,6 +154,18 @@ class BattleLogic {
                         doctor.chooseAttackDoctor(opponent: opponent, bag: bag, heroes: heroArray)
                     }
                 }
+            }
+        }
+    }
+    
+    func randomOpponentAttack() {
+        for enemy in enemyArray {
+            if let warriorOpponent = enemy as? WarriorOpponent {
+                warriorOpponent.randomWarriorOpponentAttack(heroes: heroArray)
+            } else if let archerOpponent = enemy as? ArcherOpponent {
+                archerOpponent.randomArcherOpponentAttack(heroes: heroArray)
+            } else if let doctorOpponent = enemy as? DoctorOpponent {
+                doctorOpponent.randomDoctorOpponentAttack(heroes: heroArray, opponents: enemyArray)
             }
         }
     }

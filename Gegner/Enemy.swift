@@ -53,14 +53,6 @@ class Enemy: AttackOnHeroes {
                 print("\(hero.name) dodged the dangerous attack and took no damage.")
             }
         }
-        
-        
     }
-    
-    
-    
-    
-    
-    
 }
 

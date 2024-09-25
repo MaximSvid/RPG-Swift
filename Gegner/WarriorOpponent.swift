@@ -36,5 +36,19 @@ class WarriorOpponent: Enemy {
             }
         }
     }
+    
+    func randomWarriorOpponentAttack (heroes: [Hero]) {
+        // Список всех возможных атак
+        let attacks: [(Hero) -> Void] = [
+            { (hero: Hero) in self.attckWithWeapon(hero: hero) },  // Обычная атака оружием
+            { (hero: Hero) in self.dangerousOpponentAttack(heroes: heroes) }, // Опасная атака
+        ]
+        // Случайный выбор героя и атаки
+        if let randomHero = heroes.filter({ (hero: Hero) in hero.HP > 0 }).randomElement() {
+            let randomAttack = attacks.randomElement()! // Выбираем случайную атаку
+            randomAttack(randomHero) // Применяем выбранную атаку к герою
+        }
+    }
 }
+
 

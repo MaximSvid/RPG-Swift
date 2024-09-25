@@ -34,6 +34,20 @@ class ArcherOpponent: Enemy {
         
     }
     
+    func randomArcherOpponentAttack (heroes: [Hero]) {
+        // Список всех возможных атак
+        let attacks: [(Hero) -> Void] = [
+            { (hero: Hero) in self.attckWithWeapon(hero: hero) },  // Обычная атака оружием
+            { (hero: Hero) in self.attackOnHeroes(heroes: heroes) }, // Опасная атака
+            { (hero: Hero) in self.sharpArrowOpponent(hero: hero) }, // Опасная атака
+        ]
+        // Случайный выбор героя и атаки
+        if let randomHero = heroes.filter({ (hero: Hero) in hero.HP > 0 }).randomElement() {
+            let randomAttack = attacks.randomElement()! // Выбираем случайную атаку
+            randomAttack(randomHero) // Применяем выбранную атаку к герою
+        }
+    }
+    
     
     //?
 //    func iceArrow(target: Hero)  {
