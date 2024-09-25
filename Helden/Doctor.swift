@@ -37,20 +37,31 @@ class Doctor: Hero {
 
     }
     
-    func randomDoctorAttack(enemies: [Enemy], heroes: [Hero]) {
-        // Список возможных атак
-        let attacks: [(Enemy) -> Void] = [
-            { (enemy: Enemy) in self.healAllHeroes(heroes: heroes) },
-            { (enemy: Enemy) in self.doctorAttack(opponent: enemy) },
+    // Случайная атака доктора
+    func randomDoctorAction(enemies: [Enemy], heroes: [Hero], bag: HeroesBag) {
+        // Массив действий для союзников (героев)
+        let heroActions: [(Hero) -> Void] = [
+            { (hero: Hero) in self.healAllHeroes(heroes: heroes) }, // Лечим всех героев
+            { (hero: Hero) in self.useBag(opponent: enemies.randomElement()!, bag: bag, heroes: heroes) }// Используем сумку на союзнике
         ]
         
-        // Выбираем случайного врага и атаку
-        if let randomEnemy = enemies.filter({ $0.HP > 0 }).randomElement() {
-            let randomAttack = attacks.randomElement()! // Случайная атака
-            randomAttack(randomEnemy) // Применяем атаку к случайному врагу
+        // Массив действий для врагов (атак)
+        let enemyActions: [(Enemy) -> Void] = [
+            { (enemy: Enemy) in self.doctorAttack(opponent: enemy) } // Атака на врага
+        ]
+        
+        // Решаем, атаковать врага или применить действие к герою
+        let isHeroAction = Bool.random() // Случайный выбор между героем и врагом
+
+        if isHeroAction, let randomHero = heroes.filter({ $0.HP > 0 }).randomElement() {
+            let randomHeroAction = heroActions.randomElement()! // Случайное действие на герое
+            randomHeroAction(randomHero) // Применяем действие к герою
+        } else if let randomEnemy = enemies.filter({ $0.HP > 0 }).randomElement() {
+            let randomEnemyAction = enemyActions.randomElement()! // Случайная атака на врага
+            randomEnemyAction(randomEnemy) // Применяем атаку к врагу
         }
     }
-
+    
     
     func chooseAttackDoctor(opponent: Enemy, bag: HeroesBag, heroes: [Hero]) {
         print("\n🩺 \(name) is preparing to attack! Choose an action:")

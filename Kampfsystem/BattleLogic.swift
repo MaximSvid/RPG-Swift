@@ -30,7 +30,7 @@ class BattleLogic {
         var roundNumber: Int = 1
         startGameMessage()
         print("-----------------------------------------------------")
-        chooseTeam()
+        let isHeroTeam = chooseTeam() // Получаем выбор пользователя (1 или 2)
         print("-----------------------------------------------------")
         
         while(!endGameCheck()) {
@@ -40,9 +40,15 @@ class BattleLogic {
             
             characterStatus()
             
-            heroesAttack(bag: heroesBag)
             
-            randomOpponentAttack()
+            if isHeroTeam { // Если выбраны герои
+                heroesAttack(bag: heroesBag)
+                randomOpponentAttack()
+            } else { // Если выбраны враги
+                opponentAttack(bag: enemyBag)
+                randomHeroesAttack()
+            }
+
             
             checkParticipantsStatus()
             
@@ -113,29 +119,33 @@ class BattleLogic {
         """)
     }
     
-    func chooseTeam() {
+    func chooseTeam() -> Bool {
         print("🌟 Choose Your Team 🌟")
         print("1. ⚔️ Heroes")
         print("2. 💪 Enemies")
         print("Please enter the number of your choice:")
-        
-        if let choice = readLine() {
-            switch choice {
-            case "1":
-                print("🎉 You have chosen the Heroes team! 🎉")
-                print("Here are your brave heroes:")
-                for hero in heroArray {
-                    print("💪 \(hero.name) - HP: \(hero.HP) 🛡️")
+
+        while true { // Запускаем цикл для повторного ввода в случае ошибки
+            if let choice = readLine() {
+                switch choice {
+                case "1":
+                    print("🎉 You have chosen the Heroes team! 🎉")
+                    print("Here are your brave heroes:")
+                    for hero in heroArray {
+                        print("💪 \(hero.name) - HP: \(hero.HP) 🛡️")
+                    }
+                    return true // Возвращаем true для выбора команды героев
+                case "2":
+                    print("👾 You have chosen the Enemies team! 👾")
+                    print("Beware of these foes:")
+                    for enemy in enemyArray {
+                        print("⚔️ \(enemy.name) - HP: \(enemy.HP) ⚔️")
+                    }
+                    return false // Возвращаем false для выбора команды врагов
+                default:
+                    print("❌ Invalid choice. Please select 1 for Heroes or 2 for Enemies. ❌")
+                    // Продолжаем цикл, чтобы запросить выбор снова
                 }
-            case "2":
-                print("👾 You have chosen the Enemies team! 👾")
-                print("Beware of these foes:")
-                for enemy in enemyArray {
-                    print("⚔️ \(enemy.name) - HP: \(enemy.HP) ⚔️")
-                }
-            default:
-                print("❌ Invalid choice. Please select 1 for Heroes or 2 for Enemies. ❌")
-                chooseTeam() // Запросить выбор снова
             }
         }
     }
@@ -162,7 +172,7 @@ class BattleLogic {
         }
     }
     
-    func opponentAttckt (bag: EnemyBag) {
+    func opponentAttack (bag: EnemyBag) {
         for enemy in enemyArray {
             if enemy.HP > 0 {
                 let aliveHero = heroArray.filter{ hero in hero.HP > 0 }
@@ -198,7 +208,7 @@ class BattleLogic {
             } else if let acrher = hero as? Archer {
                 acrher.randomArcherAttack(enemies: enemyArray)
             } else if let doctor = hero as? Doctor {
-                doctor.randomDoctorAttack(enemies: enemyArray, heroes: heroArray)
+                doctor.randomDoctorAction(enemies: enemyArray, heroes: heroArray, bag: heroesBag)
             }
         }
     }
