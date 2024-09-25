@@ -194,7 +194,11 @@ class BattleLogic {
     func randomHeroesAttack() {
         for hero in heroArray {
             if let warrior = hero as? Warrior {
-                warrior.
+                warrior.randomWarriorAttack(enemies: enemyArray)
+            } else if let acrher = hero as? Archer {
+                acrher.randomArcherAttack(enemies: enemyArray)
+            } else if let doctor = hero as? Doctor {
+                doctor.randomDoctorAttack(enemies: enemyArray, heroes: heroArray)
             }
         }
     }

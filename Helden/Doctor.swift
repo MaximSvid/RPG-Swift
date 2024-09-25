@@ -36,6 +36,20 @@ class Doctor: Hero {
         print("\(opponent.name) was struck by the Doctor, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP remaining.")
 
     }
+    
+    func randomDoctorAttack(enemies: [Enemy], heroes: [Hero]) {
+        // Список возможных атак
+        let attacks: [(Enemy) -> Void] = [
+            { (enemy: Enemy) in self.healAllHeroes(heroes: heroes) },
+            { (enemy: Enemy) in self.doctorAttack(opponent: enemy) },
+        ]
+        
+        // Выбираем случайного врага и атаку
+        if let randomEnemy = enemies.filter({ $0.HP > 0 }).randomElement() {
+            let randomAttack = attacks.randomElement()! // Случайная атака
+            randomAttack(randomEnemy) // Применяем атаку к случайному врагу
+        }
+    }
 
     
     func chooseAttackDoctor(opponent: Enemy, bag: HeroesBag, heroes: [Hero]) {

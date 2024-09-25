@@ -44,6 +44,21 @@ class Archer: Hero {
         print("\(opponent.name) was hit by a sharp arrow, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP left.")
     }
     
+    func randomArcherAttack(enemies: [Enemy]) {
+        // Список возможных атак
+        let attacks: [(Enemy) -> Void] = [
+//            { (enemy: Enemy) in self.takeDamage(incomingAttack: <#T##Int#>) },
+            { (enemy: Enemy) in self.attackAllEnemies(enemies: enemies) },
+            { (enemy: Enemy) in self.sharpArrow(opponent: enemy) }
+        ]
+        
+        // Выбираем случайного врага и атаку
+        if let randomEnemy = enemies.filter({ $0.HP > 0 }).randomElement() {
+            let randomAttack = attacks.randomElement()! // Случайная атака
+            randomAttack(randomEnemy) // Применяем атаку к случайному врагу
+        }
+    }
+    
     func chooseAttackArcher(opponent: Enemy, enemies: [Enemy], bag: HeroesBag) {
         print("\n🏹 \(name) is preparing to attack! Choose an action:") 
         print("[1] 🌪️ Rain of Arrows on All Enemies")
