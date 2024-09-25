@@ -25,16 +25,20 @@ class WarriorOpponent: Enemy {
         if let oneHero = singleAttackTarget {
             oneHero.HP -= damage
             print("💣 \(oneHero.name) was caught off guard by a dangerous blow, taking \(damage) damage! \(oneHero.name) now has \(oneHero.HP) HP remaining.")
+            print("-----------------------------------------------------")
         }
         
         // 20% chance to attack all heroes
         if hitAll {
             print("⚔️ A menacing attack strikes all heroes in its path!")
+            print("-----------------------------------------------------")
             for hero in heroes {
                 hero.HP -= damage
                 print("🥴 \(hero.name) received a hit, losing \(damage) health! Current HP: \(hero.HP).")            }
         }
+        print("-----------------------------------------------------")
     }
+    
     
     func randomWarriorOpponentAttack (heroes: [Hero]) {
         // Список всех возможных атак

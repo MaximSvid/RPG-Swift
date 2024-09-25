@@ -25,10 +25,12 @@ class DoctorOpponent: Enemy {
                 Damage: \(superDamage)
                 \(target.name) now has \(target.HP) HP.
                 """)
+            print("-----------------------------------------------------")
         } else {
             print("""
                 ❌ \(name) can no longer use Super Attack, as all attempts have been exhausted! ❌
                 """)
+            print("-----------------------------------------------------")
         }
     }
     
@@ -53,6 +55,7 @@ class DoctorOpponent: Enemy {
                     self.superAttack(target: hero) // Супер атака на героя
                 } else {
                     print("⚡️ \(self.name) cannot use the super attack, as all super attacks have already been exhausted! ❌")
+                    print("-----------------------------------------------------")
                     self.attckWithWeapon(hero: hero) // Выполняем обычную атаку
                 }
             },

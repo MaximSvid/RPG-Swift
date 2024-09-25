@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1522C5482CA4A5370054D823 /* HeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522C5472CA4A36C0054D823 /* HeroState.swift */; };
 		15BD49792CA33D110052E5DA /* AttackOnEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8EEEF2CA33755002CEA5B /* AttackOnEnemy.swift */; };
 		15BD497A2CA33D1C0052E5DA /* AttackOnHeroes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8EEF02CA3376C002CEA5B /* AttackOnHeroes.swift */; };
 		15BD497C2CA342A10052E5DA /* BattleLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD497B2CA341710052E5DA /* BattleLogic.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1522C5472CA4A36C0054D823 /* HeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroState.swift; sourceTree = "<group>"; };
 		15542F192CA18ED5001644B5 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		15542F1A2CA19057001644B5 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		15542F1B2CA19168001644B5 /* Archer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1522C5462CA4A3590054D823 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				1522C5472CA4A36C0054D823 /* HeroState.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		15542F152CA18CD1001644B5 /* Helden */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		CE2F4BED2C9D636900643971 = {
 			isa = PBXGroup;
 			children = (
+				1522C5462CA4A3590054D823 /* Enum */,
 				15F8EEEE2CA30A79002CEA5B /* protocol */,
 				158DA5502CA1E63700E952E1 /* Inventar */,
 				15542F182CA18D3B001644B5 /* Hilfsdateien */,
@@ -219,6 +230,7 @@
 				15BD49792CA33D110052E5DA /* AttackOnEnemy.swift in Sources */,
 				15BD49802CA3551D0052E5DA /* EnemyBag.swift in Sources */,
 				15F8EEEA2CA30789002CEA5B /* Doctor.swift in Sources */,
+				1522C5482CA4A5370054D823 /* HeroState.swift in Sources */,
 				15F8EEE82CA30771002CEA5B /* Warrior.swift in Sources */,
 				15BD497A2CA33D1C0052E5DA /* AttackOnHeroes.swift in Sources */,
 				15F8EEE72CA30761002CEA5B /* Enemy.swift in Sources */,

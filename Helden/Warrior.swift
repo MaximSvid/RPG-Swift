@@ -11,19 +11,21 @@ class Warrior: Hero {
     
     init(name: String, HP: Int, attack: Int, isLive: Bool, twoAttack: Int) {
         self.dualAttack = twoAttack
-        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
+        super.init(name: name, HP: HP,maxHP: HP, attack: attack, isLive: isLive)
     }
     
     func warriorAttack (opponent: Enemy) {
         let damage = attack
         _ = opponent.HP - damage
         print("⚔️ \(name) launched an attack on \(opponent.name) and inflicted \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.")
+        print("-----------------------------------------------------")
     }
     
     func dualWarriorAttck (opponent: Enemy) {
         let damage = attack * 2
         _ = opponent.HP - damage
         print("⚔️ \(name) unleashed a powerful dual attack on \(opponent.name), dealing a devastating \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.")
+        print("-----------------------------------------------------")
     }
     
     func dangerousAttack(opponent: Enemy)  {
@@ -33,8 +35,10 @@ class Warrior: Hero {
         if success {
             opponent.HP -= damage
             print("🔥 \(opponent.name) was struck by a fierce blow, suffering \(damage) damage! 🌪️ \(opponent.name) now has \(opponent.HP) HP remaining to fight another day!")
+            print("-----------------------------------------------------")
         } else {
             print("⚡️ \(opponent.name) skillfully dodged the perilous attack, escaping unscathed!")
+            print("-----------------------------------------------------")
         }
     }
     //protocol in super class Hero

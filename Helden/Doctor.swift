@@ -11,7 +11,7 @@ class Doctor: Hero {
     
     init(name: String, HP: Int, attack: Int, isLive: Bool,strengthVaccine: Bool ) {
         self.strengthVaccine = strengthVaccine
-        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
+        super.init(name: name, HP: HP, maxHP: HP, attack: attack, isLive: isLive)
     }
     
     //Angriffsverringerungsfunktion um 30
@@ -27,6 +27,7 @@ class Doctor: Hero {
         for hero in heroes {
             hero.HP += recoveryAmount
             print("💖 \(name) channels their energy to heal \(hero.name) for \(recoveryAmount) HP! \(hero.name) now stands strong with \(hero.HP) HP.")
+            print("-----------------------------------------------------")
         }
     }
     
@@ -34,6 +35,7 @@ class Doctor: Hero {
         let damage = attack
         opponent.HP -= damage
         print("💥 A powerful blow from the Doctor strikes \(opponent.name), inflicting \(damage) damage! \(opponent.name) now stands with \(opponent.HP) HP.")
+        print("-----------------------------------------------------")
     }
     
     // Случайная атака доктора

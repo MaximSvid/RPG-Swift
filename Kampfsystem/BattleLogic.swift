@@ -237,13 +237,14 @@ class BattleLogic {
             hero.checkIfAlive()  // Check the life of the hero
             if hero.isLive {
                 liveHeroes.append(hero)  // If the hero is alive, add them to the list
-                print("✨ Hero \(hero.name) is alive with \(hero.HP) HP.")
+//                print("✨ Hero \(hero.name) is alive with \(hero.HP) HP.")
                 
             } else {
-                print("💔 Hero \(hero.name) is dead.")
+//                print("💔 Hero \(hero.name) is dead.")
             }
-            print("-----------------------------------------------------")
+          
         }
+        print("-----------------------------------------------------")
         
         // Check status of enemies
         for enemy in enemies {
@@ -255,8 +256,9 @@ class BattleLogic {
             } else {
                 print("💔 Enemy \(enemy.name) is dead.")
             }
-            print("-----------------------------------------------------")
+            
         }
+        print("-----------------------------------------------------")
         
         // Inform about the number of living characters
         let totalLiveHeroes = liveHeroes.count

@@ -9,7 +9,7 @@ class Archer: Hero {
     
     init(name: String, HP: Int, attack: Int, isLive: Bool, shadow: Int) {
         self.shadow = shadow
-        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
+        super.init(name: name, HP: HP, maxHP: HP, attack: attack, isLive: isLive)
     }
     
     //test
@@ -22,10 +22,12 @@ class Archer: Hero {
         // Если лучник в тени, игнорируем атаку
         if archerInShadow() {
                 print("🌑 \(name) slips into the shadows, gracefully evading the incoming attack!")
+            print("-----------------------------------------------------")
                 return 0 // Возвращаем 0 урона1
         } else {
             // Если не в тени, наносим урон
             print("🔥 The attack lands! \(name) takes \(incomingAttack) damage.")
+            print("-----------------------------------------------------")
             HP -= incomingAttack
             return incomingAttack
         }
@@ -42,6 +44,7 @@ class Archer: Hero {
         let damage = attack
         opponent.HP -= damage // Используем opponent вместо opponents
         print("🏹 A sharp arrow strikes \(opponent.name), dealing \(damage) damage! \(opponent.name) now has \(opponent.HP) HP remaining.")
+        print("-----------------------------------------------------")
     }
     
     func randomArcherAttack(enemies: [Enemy]) {
