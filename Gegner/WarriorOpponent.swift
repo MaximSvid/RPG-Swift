@@ -49,6 +49,73 @@ class WarriorOpponent: Enemy {
             randomAttack(randomHero) // Применяем выбранную атаку к герою
         }
     }
+    
+    
+    func chooseAttackWarriorOpponent(hero: Hero, heroes: [Hero], bag: EnemyBag) {
+        print("\n🔪 \(name) is preparing to attack! Choose an action:")
+        print("[1] ⚔️ Basic Attack")
+        print("[2] ⚔️ Dangerous Attack")
+        
+        // Проверяем наличие зелий в рюкзаке перед добавлением опции использования зелий
+        if bag.healingAllEnemy > 0 || bag.plusPowerOnAllEnemy > 0 {
+            print("[3] 🎒 Use Bag")
+        }
+        
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                attckWithWeapon(hero: hero)
+            case "2":
+                dangerousOpponentAttack(heroes: heroes)
+            case "3":
+                useBag(bag: bag) // Убираем opponent, чтобы использовать bag только
+            default:
+                print("🚫 Invalid choice. Please choose again.")
+                chooseAttackWarriorOpponent(hero: hero, heroes: heroes, bag: bag) // Повторный вызов для нового выбора
+            }
+        }
+    }
+    
+    func useBag(bag: EnemyBag) {
+        print("\n🎒 Choose an item to use:")
+        
+        if bag.healingAllEnemy > 0 {
+            print("[1] 💊 Use Healing Potion")
+        }
+        
+        if bag.plusPowerOnAllEnemy > 0 {
+            print("[2] ⚡ Use Strength Potion")
+        }
+        
+        // Если оба зелья закончились
+        if bag.healingAllEnemy == 0 && bag.plusPowerOnAllEnemy == 0 {
+            print("🚫 No potions available to use!")
+            return // Завершаем использование зелья, если их нет
+        }
+        
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                if bag.healingAllEnemy > 0 {
+                    bag.healAllEnemies(enemies: [self]) // Передаем текущего противника для лечения
+                } else {
+                    print("🚫 No healing potions available!")
+                    useBag(bag: bag) // Повторный вызов для нового выбора
+                }
+            case "2":
+                if bag.plusPowerOnAllEnemy > 0 {
+                    bag.boostAttackForAllEnemies(enemies: [self]) // Передаем текущего противника для усиления
+                } else {
+                    print("🚫 No strength potions available!")
+                    useBag(bag: bag) // Повторный вызов для нового выбора
+                }
+            default:
+                print("🚫 Invalid choice. Please choose again.")
+                useBag(bag: bag) // Повторный вызов для нового выбора
+            }
+        }
+    }
+    
 }
 
 

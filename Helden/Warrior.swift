@@ -42,6 +42,22 @@ class Warrior: Hero {
         super.attackAllEnemies(enemies: enemies)
     }
     
+    func randomWarriorAttack(enemies: [Enemy]) {
+        // Список возможных атак
+        let attacks: [(Enemy) -> Void] = [
+            { (enemy: Enemy) in self.warriorAttack(opponent: enemy) },
+            { (enemy: Enemy) in self.dualWarriorAttck(opponent: enemy) },
+            { (enemy: Enemy) in self.dangerousAttack(opponent: enemy) }
+        ]
+        
+        // Выбираем случайного врага и атаку
+        if let randomEnemy = enemies.filter({ $0.HP > 0 }).randomElement() {
+            let randomAttack = attacks.randomElement()! // Случайная атака
+            randomAttack(randomEnemy) // Применяем атаку к случайному врагу
+        }
+    }
+    
+    
     func chooseAttackWarrior(opponent: Enemy, bag: HeroesBag) {
         print("\n🔪 \(name) is preparing to attack! Choose an action:")
         print("[1] ⚔️ Basic Attack")

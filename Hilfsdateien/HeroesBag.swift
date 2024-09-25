@@ -6,8 +6,8 @@
 //
 
 class HeroesBag {
-    var healing:Int = 4
-    var power: Int = 2
+    var healing:Int
+    var power: Int 
     
     init(healing: Int, power: Int) {
         self.healing = healing

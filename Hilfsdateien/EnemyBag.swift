@@ -6,8 +6,13 @@
 //
 
 class EnemyBag {
-    var healingAllEnemy: Int = 1
-    var plusPowerOnAllEnemy: Int = 1
+    var healingAllEnemy: Int
+    var plusPowerOnAllEnemy: Int
+    
+    init(healingAllEnemy: Int, plusPowerOnAllEnemy: Int) {
+            self.healingAllEnemy = healingAllEnemy
+            self.plusPowerOnAllEnemy = plusPowerOnAllEnemy
+        }
     
     func healAllEnemies(enemies: [Enemy]) {
         if healingAllEnemy > 0 {

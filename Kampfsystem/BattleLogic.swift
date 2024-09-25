@@ -22,8 +22,11 @@ class BattleLogic {
         enemyArray = [enemyWarrior, enemyArcher, enemyDortor]
     }
     
+    let heroesBag = HeroesBag(healing: 4, power: 2) // Инициализация сумки с 4 зельями лечения и
+    let enemyBag = EnemyBag(healingAllEnemy: 1, plusPowerOnAllEnemy: 1) // Инициализация сумки с 4 зельями лечения и 2 зельями силы
+    
     func playRound () {
-        let heroesBag = HeroesBag(healing: 4, power: 2) // Инициализация сумки с 4 зельями лечения и 2 зельями силы
+       
         var roundNumber: Int = 1
         startGameMessage()
         print("-----------------------------------------------------")
@@ -41,9 +44,10 @@ class BattleLogic {
             
             randomOpponentAttack()
             
+            checkParticipantsStatus()
+            
             roundNumber += 1
             
-//            1exit(0)
         }
     }
     
@@ -140,7 +144,7 @@ class BattleLogic {
         for hero in heroArray {
             if hero.HP > 0 {
                 // Фильтруем врагов, оставляя только тех, у кого HP больше 0
-                let aliveEnemies = enemyArray.filter { $0.HP > 0 }
+                let aliveEnemies = enemyArray.filter { enemy in enemy.HP > 0 }
                 
                 // Проверяем, есть ли живые враги
                 if let opponent = aliveEnemies.randomElement() {
@@ -158,6 +162,23 @@ class BattleLogic {
         }
     }
     
+    func opponentAttckt (bag: EnemyBag) {
+        for enemy in enemyArray {
+            if enemy.HP > 0 {
+                let aliveHero = heroArray.filter{ hero in hero.HP > 0 }
+                if let hero = aliveHero.randomElement() {
+                    if let warriorOpponent = enemy as? WarriorOpponent {
+                        warriorOpponent.chooseAttackWarriorOpponent(hero: hero, heroes: heroArray, bag: bag)
+                    } else if let archerOpponent = enemy as? ArcherOpponent {
+                        archerOpponent.chooseAttackArcherOpponent(hero: hero, heroes: heroArray, bag: bag)
+                    } else if let doctorOpponent = enemy as? DoctorOpponent {
+                        doctorOpponent.chooseAttackDoctorOpponent(hero: hero, heroes: heroArray, opponents: enemyArray, bag: bag)
+                    }
+                }
+            }
+        }
+    }
+    
     func randomOpponentAttack() {
         for enemy in enemyArray {
             if let warriorOpponent = enemy as? WarriorOpponent {
@@ -166,6 +187,33 @@ class BattleLogic {
                 archerOpponent.randomArcherOpponentAttack(heroes: heroArray)
             } else if let doctorOpponent = enemy as? DoctorOpponent {
                 doctorOpponent.randomDoctorOpponentAttack(heroes: heroArray, opponents: enemyArray)
+            }
+        }
+    }
+    
+    func randomHeroesAttack() {
+        for hero in heroArray {
+            if let warrior = hero as? Warrior {
+                warrior.
+            }
+        }
+    }
+    
+    // Проверка состояния всех участников
+    func checkParticipantsStatus() {
+        // Проверяем состояние героев
+        //print("\n🌟 Heroes' Status 🌟")
+        for hero in heroArray {
+            if !hero.isLive {
+                print("💔 \(hero.name) is dead.")
+            }
+        }
+        
+        // Проверяем состояние врагов
+       // print("\n👾 Enemies' Status 👾")
+        for enemy in enemyArray {
+            if !enemy.isLive {
+                print("💔 \(enemy.name) is dead.")
             }
         }
     }
