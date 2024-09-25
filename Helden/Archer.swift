@@ -21,11 +21,11 @@ class Archer: Hero {
     func takeDamage(incomingAttack: Int) -> Int {
         // Если лучник в тени, игнорируем атаку
         if archerInShadow() {
-            print("\(name) is in shadow and dodges the attack!")
-            return 0 // Возвращаем 0 урона
+                print("🌑 \(name) slips into the shadows, gracefully evading the incoming attack!")
+                return 0 // Возвращаем 0 урона1
         } else {
             // Если не в тени, наносим урон
-            print("\(name) takes \(incomingAttack) damage.")
+            print("🔥 The attack lands! \(name) takes \(incomingAttack) damage.")
             HP -= incomingAttack
             return incomingAttack
         }
@@ -41,13 +41,13 @@ class Archer: Hero {
     func sharpArrow(opponent: Enemy) { // Изменено на opponent
         let damage = attack
         opponent.HP -= damage // Используем opponent вместо opponents
-        print("\(opponent.name) was hit by a sharp arrow, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP left.")
+        print("🏹 A sharp arrow strikes \(opponent.name), dealing \(damage) damage! \(opponent.name) now has \(opponent.HP) HP remaining.")
     }
     
     func randomArcherAttack(enemies: [Enemy]) {
         // Список возможных атак
         let attacks: [(Enemy) -> Void] = [
-//            { (enemy: Enemy) in self.takeDamage(incomingAttack: <#T##Int#>) },
+            //            { (enemy: Enemy) in self.takeDamage(incomingAttack: <#T##Int#>) },
             { (enemy: Enemy) in self.attackAllEnemies(enemies: enemies) },
             { (enemy: Enemy) in self.sharpArrow(opponent: enemy) }
         ]
@@ -60,7 +60,7 @@ class Archer: Hero {
     }
     
     func chooseAttackArcher(opponent: Enemy, enemies: [Enemy], bag: HeroesBag) {
-        print("\n🏹 \(name) is preparing to attack! Choose an action:") 
+        print("\n🏹 \(name) is preparing to attack! Choose an action:")
         print("[1] 🌪️ Rain of Arrows on All Enemies")
         print("[2] 🏹 Sharp Arrow")
         print("[3] 🌑 Archer in Shadow")

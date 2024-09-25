@@ -26,15 +26,14 @@ class Doctor: Hero {
         let recoveryAmount = 40
         for hero in heroes {
             hero.HP += recoveryAmount
-            print("\(name) heals \(hero.name) for \(recoveryAmount) HP, now \(hero.name) has \(hero.HP) HP.")
+            print("💖 \(name) channels their energy to heal \(hero.name) for \(recoveryAmount) HP! \(hero.name) now stands strong with \(hero.HP) HP.")
         }
     }
     
     func doctorAttack(opponent: Enemy)  {
         let damage = attack
         opponent.HP -= damage
-        print("\(opponent.name) was struck by the Doctor, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP remaining.")
-
+        print("💥 A powerful blow from the Doctor strikes \(opponent.name), inflicting \(damage) damage! \(opponent.name) now stands with \(opponent.HP) HP.")
     }
     
     // Случайная атака доктора

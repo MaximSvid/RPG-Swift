@@ -23,14 +23,14 @@ class ArcherOpponent: Enemy {
         let damage = attack
         for hero in heroes {
             hero.HP -= damage
-            print("\(name) attacked \(hero.name) and did \(damage) damage to him. \(hero.name) has \(hero.HP) health left.")
+            print("🎯 \(name) launched a powerful strike against \(hero.name), dealing \(damage) damage! \(hero.name) now has \(hero.HP) HP remaining.")
         }
     }
     
     func sharpArrowOpponent (hero: Hero) {
         let damage = attack * 2
         hero.HP -= damage
-        print("\(hero.name) was hit by a sharp arrow, taking \(damage) damage. \(hero.name) now has \(hero.HP) HP left.")
+        print("🏹 \(hero.name) was struck by a sharp arrow, suffering \(damage) damage. They now have \(hero.HP) HP remaining.")
         
     }
     

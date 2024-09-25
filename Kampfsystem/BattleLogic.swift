@@ -26,7 +26,7 @@ class BattleLogic {
     let enemyBag = EnemyBag(healingAllEnemy: 1, plusPowerOnAllEnemy: 1) // Инициализация сумки с 4 зельями лечения и 2 зельями силы
     
     func playRound () {
-       
+        
         var roundNumber: Int = 1
         startGameMessage()
         print("-----------------------------------------------------")
@@ -48,9 +48,13 @@ class BattleLogic {
                 opponentAttack(bag: enemyBag)
                 randomHeroesAttack()
             }
-
             
-            checkParticipantsStatus()
+            
+            //            checkParticipantsStatus()
+            
+           // checkAllHeroesAfterRound()
+            
+            let (liveHeroes, liveEnemies) = checkAllCharactersAfterRound(heroes: heroArray, enemies: enemyArray)
             
             roundNumber += 1
             
@@ -82,22 +86,26 @@ class BattleLogic {
         return false
     }
     
-    func characterStatus () {
-        print("\nHeroes' status:")
+    func characterStatus() {
+        print("\n🌟 Heroes' Status 🌟")
         for hero in heroArray {
             if hero.HP > 0 {
-                print("\(hero.name) has \(hero.HP) HP remaining.")
+                print("✨ \(hero.name) has \(hero.HP) HP remaining.")
+            } else {
+                print("💔 \(hero.name) is defeated.")
             }
         }
         
-        print("\nEnemies' status:")
+        print("\n👾 Enemies' Status 👾")
         for enemy in enemyArray {
             if enemy.HP > 0 {
-                print("\(enemy.name) has \(enemy.HP) HP remaining.")
+                print("🔥 \(enemy.name) has \(enemy.HP) HP remaining.")
+            } else {
+                print("⚔️ \(enemy.name) is defeated.")
             }
-            
         }
-        print("")  // Пустая строка для удобства чтения
+        
+        print("-----------------------------------------------------")  // Разделительная линия для удобства чтения
     }
     
     func startGameMessage() {
@@ -124,12 +132,14 @@ class BattleLogic {
         print("1. ⚔️ Heroes")
         print("2. 💪 Enemies")
         print("Please enter the number of your choice:")
-
+        
+        
         while true { // Запускаем цикл для повторного ввода в случае ошибки
             if let choice = readLine() {
                 switch choice {
                 case "1":
                     print("🎉 You have chosen the Heroes team! 🎉")
+                    print("-----------------------------------------------------")
                     print("Here are your brave heroes:")
                     for hero in heroArray {
                         print("💪 \(hero.name) - HP: \(hero.HP) 🛡️")
@@ -137,6 +147,7 @@ class BattleLogic {
                     return true // Возвращаем true для выбора команды героев
                 case "2":
                     print("👾 You have chosen the Enemies team! 👾")
+                    print("-----------------------------------------------------")
                     print("Beware of these foes:")
                     for enemy in enemyArray {
                         print("⚔️ \(enemy.name) - HP: \(enemy.HP) ⚔️")
@@ -144,6 +155,7 @@ class BattleLogic {
                     return false // Возвращаем false для выбора команды врагов
                 default:
                     print("❌ Invalid choice. Please select 1 for Heroes or 2 for Enemies. ❌")
+                    print("-----------------------------------------------------")
                     // Продолжаем цикл, чтобы запросить выбор снова
                 }
             }
@@ -213,22 +225,56 @@ class BattleLogic {
         }
     }
     
-    // Проверка состояния всех участников
-    func checkParticipantsStatus() {
-        // Проверяем состояние героев
-        //print("\n🌟 Heroes' Status 🌟")
-        for hero in heroArray {
-            if !hero.isLive {
-                print("💔 \(hero.name) is dead.")
+    func checkAllCharactersAfterRound(heroes: [Hero], enemies: [Enemy]) -> (liveHeroes: [Hero], liveEnemies: [Enemy]) {
+        var liveHeroes: [Hero] = []  // List of living heroes
+        var liveEnemies: [Enemy] = []  // List of living enemies
+
+        print("-----------------------------------------------------")
+        print("\n🌟 Checking the status of characters 🌟")
+        
+        // Check status of heroes
+        for hero in heroes {
+            hero.checkIfAlive()  // Check the life of the hero
+            if hero.isLive {
+                liveHeroes.append(hero)  // If the hero is alive, add them to the list
+                print("✨ Hero \(hero.name) is alive with \(hero.HP) HP.")
+                
+            } else {
+                print("💔 Hero \(hero.name) is dead.")
             }
+            print("-----------------------------------------------------")
         }
         
-        // Проверяем состояние врагов
-       // print("\n👾 Enemies' Status 👾")
-        for enemy in enemyArray {
-            if !enemy.isLive {
-                print("💔 \(enemy.name) is dead.")
+        // Check status of enemies
+        for enemy in enemies {
+            enemy.checkIfAlive()  // Check the life of the enemy
+            if enemy.isLive {
+                liveEnemies.append(enemy)  // If the enemy is alive, add them to the list
+                print("✨ Enemy \(enemy.name) is alive with \(enemy.HP) HP.")
+            
+            } else {
+                print("💔 Enemy \(enemy.name) is dead.")
             }
+            print("-----------------------------------------------------")
         }
+        
+        // Inform about the number of living characters
+        let totalLiveHeroes = liveHeroes.count
+        let totalLiveEnemies = liveEnemies.count
+
+        if totalLiveHeroes > 0 {
+            print("\n✅ Total living heroes: \(totalLiveHeroes)")
+        } else {
+            print("\n⚔️ All heroes are dead!")
+        }
+
+        if totalLiveEnemies > 0 {
+            print("\n✅ Total living enemies: \(totalLiveEnemies)")
+        } else {
+            print("\n⚔️ All enemies are dead!")
+        }
+
+        return (liveHeroes, liveEnemies)  // Return the lists of only living heroes and enemies
     }
+ 
 }

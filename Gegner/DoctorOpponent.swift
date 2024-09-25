@@ -77,7 +77,7 @@ class DoctorOpponent: Enemy {
         print("\n🔪 \(name) is preparing to attack! Choose an action:")
         print("[1] ⚔️ Basic Attack")
         print("[2] ⚡️ Super Attack (available \(superAttackUsed) times)")
-        print("[3] 💉 Heal All Opponents") // Option to heal all opponents
+        print("[3] 💉 Heal All") // Option to heal all opponents
         
         // Check for potions in the bag before adding the option to use items
         if bag.healingAllEnemy > 0 || bag.plusPowerOnAllEnemy > 0 {

@@ -24,16 +24,15 @@ class WarriorOpponent: Enemy {
         // Attack a single hero
         if let oneHero = singleAttackTarget {
             oneHero.HP -= damage
-            print("\(oneHero.name) was hit by the dangerous attack and took \(damage) damage. \(oneHero.name) now has \(oneHero.HP) HP left.")
+            print("💣 \(oneHero.name) was caught off guard by a dangerous blow, taking \(damage) damage! \(oneHero.name) now has \(oneHero.HP) HP remaining.")
         }
         
         // 20% chance to attack all heroes
         if hitAll {
-            print("The dangerous attack hits all heroes!")
+            print("⚔️ A menacing attack strikes all heroes in its path!")
             for hero in heroes {
                 hero.HP -= damage
-                print("\(hero.name) took \(damage) damage. \(hero.name) now has \(hero.HP) HP left.")
-            }
+                print("🥴 \(hero.name) received a hit, losing \(damage) health! Current HP: \(hero.HP).")            }
         }
     }
     

@@ -17,13 +17,13 @@ class Warrior: Hero {
     func warriorAttack (opponent: Enemy) {
         let damage = attack
         _ = opponent.HP - damage
-        print("\(name) attacked \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
+        print("⚔️ \(name) launched an attack on \(opponent.name) and inflicted \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.")
     }
     
     func dualWarriorAttck (opponent: Enemy) {
         let damage = attack * 2
         _ = opponent.HP - damage
-        print("\(name) attacked with dual attack \(opponent.name) and did \(damage) damage to him. \(opponent.name) has \(opponent.HP) health left.")
+        print("⚔️ \(name) unleashed a powerful dual attack on \(opponent.name), dealing a devastating \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.")
     }
     
     func dangerousAttack(opponent: Enemy)  {
@@ -32,9 +32,9 @@ class Warrior: Hero {
         
         if success {
             opponent.HP -= damage
-            print("\(opponent.name) was hit by a dangerous attack, taking \(damage) damage. \(opponent.name) now has \(opponent.HP) HP left.")
+            print("🔥 \(opponent.name) was struck by a fierce blow, suffering \(damage) damage! 🌪️ \(opponent.name) now has \(opponent.HP) HP remaining to fight another day!")
         } else {
-            print("\(opponent.name) dodged the dangerous attack and took no damage.")
+            print("⚡️ \(opponent.name) skillfully dodged the perilous attack, escaping unscathed!")
         }
     }
     //protocol in super class Hero

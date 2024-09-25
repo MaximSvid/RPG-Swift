@@ -18,11 +18,18 @@ class Enemy: AttackOnHeroes {
         self.isLive = isLive
     }
     
+    func checkIfAlive() {
+           if HP <= 0 {
+               isLive = false
+//               print("💔 Alas, \(name) has fallen. They are no longer among the living.")
+           }
+       }
+    
     //protocol
     func attckWithWeapon (hero: Hero) {
         let damage = 35
         var attack = hero.HP - damage
-        print("\(name) attacked \(hero.name) and did \(damage) damage to him. \(hero.name) has \(hero.HP) health left.")
+        print("💫 \(name) launches a fierce attack on \(hero.name), causing \(damage) damage. \(hero.name) has \(hero.HP) HP left.")
     }
     
     
@@ -31,14 +38,14 @@ class Enemy: AttackOnHeroes {
         let damage = 50
         for hero in heroes {
             hero.HP -= damage
-            print("\(name) attacked \(hero.name) and did \(damage) damage to him. \(hero.name) has \(hero.HP) health left.")
+            print("🔥 \(name) launches a fierce attack on \(hero.name), inflicting \(damage) damage. \(hero.name) is left with \(hero.HP) health!")
         }
     }
     
     //метод лечения
     func treatment(enemy: Enemy)  {
         var treatment = enemy.HP * 2
-        print("\(enemy.name) used the treatment.")
+        print("🌱 \(enemy.name) utilized a healing treatment to regain vitality!")
     }
     
     //attack on all Heroes (50%)
@@ -48,9 +55,9 @@ class Enemy: AttackOnHeroes {
             let success = Bool.random() // true or false
             if success {
                 hero.HP -= damage
-                print("\(hero.name) was hit by a dangerous attack, taking \(damage) damage. \(hero.name) now has \(hero.HP) HP left.")
+                print("🔥 \(hero.name) was struck by a fierce blow, losing \(damage) health points. \(hero.name) now stands at \(hero.HP) HP.")
             } else {
-                print("\(hero.name) dodged the dangerous attack and took no damage.")
+                print("💨 \(hero.name) skillfully evaded the dangerous attack, sustaining no damage!")
             }
         }
     }
