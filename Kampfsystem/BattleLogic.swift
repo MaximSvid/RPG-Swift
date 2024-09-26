@@ -48,13 +48,9 @@ class BattleLogic {
                 opponentAttack(bag: enemyBag)
                 randomHeroesAttack()
             }
+
             
-            
-            //            checkParticipantsStatus()
-            
-           // checkAllHeroesAfterRound()
-            
-            let (liveHeroes, liveEnemies) = checkAllCharactersAfterRound(heroes: heroArray, enemies: enemyArray)
+            checkAllCharactersAfterRound(heroes: &heroArray, enemies: &enemyArray)
             
             roundNumber += 1
             
@@ -225,58 +221,47 @@ class BattleLogic {
         }
     }
     
-    func checkAllCharactersAfterRound(heroes: [Hero], enemies: [Enemy]) -> (liveHeroes: [Hero], liveEnemies: [Enemy]) {
-        var liveHeroes: [Hero] = []  // List of living heroes
-        var liveEnemies: [Enemy] = []  // List of living enemies
-
+    func checkAllCharactersAfterRound(heroes: inout [Hero], enemies: inout [Enemy]) {
         print("-----------------------------------------------------")
         print("\n🌟 Checking the status of characters 🌟")
         
-        // Check status of heroes
-        for hero in heroes {
-            hero.checkIfAlive()  // Check the life of the hero
-            if hero.isLive {
-                liveHeroes.append(hero)  // If the hero is alive, add them to the list
-//                print("✨ Hero \(hero.name) is alive with \(hero.HP) HP.")
-                
-            } else {
-//                print("💔 Hero \(hero.name) is dead.")
+        // Удаляем мертвых героев из heroArray
+        heroes.removeAll { hero in
+            hero.checkIfAlive()  // Проверяем, жив ли герой
+            if !hero.isLive {
+                print("💔 Hero \(hero.name) is dead.")
+                return true  // Возвращаем true, если герой мертв (будет удален)
             }
-          
+            return false  // Герой жив, не удаляем
         }
-        print("-----------------------------------------------------")
         
-        // Check status of enemies
-        for enemy in enemies {
-            enemy.checkIfAlive()  // Check the life of the enemy
-            if enemy.isLive {
-                liveEnemies.append(enemy)  // If the enemy is alive, add them to the list
-                print("✨ Enemy \(enemy.name) is alive with \(enemy.HP) HP.")
-            
-            } else {
+        // Удаляем мертвых врагов из enemyArray
+        enemies.removeAll { enemy in
+            enemy.checkIfAlive()  // Проверяем, жив ли враг
+            if !enemy.isLive {
                 print("💔 Enemy \(enemy.name) is dead.")
+                return true  // Возвращаем true, если враг мертв (будет удален)
+            } else {
+                print("✨ Enemy \(enemy.name) is alive with \(enemy.HP) HP.")
+                return false  // Враг жив, не удаляем
             }
-            
         }
+        
         print("-----------------------------------------------------")
         
-        // Inform about the number of living characters
-        let totalLiveHeroes = liveHeroes.count
-        let totalLiveEnemies = liveEnemies.count
-
-        if totalLiveHeroes > 0 {
-            print("\n✅ Total living heroes: \(totalLiveHeroes)")
-        } else {
+        // Выводим информацию о живых героях
+        if heroes.isEmpty {
             print("\n⚔️ All heroes are dead!")
-        }
-
-        if totalLiveEnemies > 0 {
-            print("\n✅ Total living enemies: \(totalLiveEnemies)")
         } else {
-            print("\n⚔️ All enemies are dead!")
+            print("\n✅ Total living heroes: \(heroes.count)")
         }
-
-        return (liveHeroes, liveEnemies)  // Return the lists of only living heroes and enemies
+        
+        // Выводим информацию о живых врагах
+        if enemies.isEmpty {
+            print("\n⚔️ All enemies are dead!")
+        } else {
+            print("\n✅ Total living enemies: \(enemies.count)")
+        }
     }
  
 }
