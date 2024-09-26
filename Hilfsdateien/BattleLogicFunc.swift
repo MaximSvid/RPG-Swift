@@ -170,8 +170,51 @@ class BattleLogicFunc {
             } else if let acrher = hero as? Archer {
                 acrher.randomArcherAttack(enemies: enemyArray)
             } else if let doctor = hero as? Doctor {
-                doctor.randomDoctorAction(enemies: enemyArray, heroes: heroArray, bag: heroesBag)
+                doctor.randomDoctorAction(enemies: enemyArray, heroes: heroArray, bag: bag)
             }
+        }
+    }
+    
+    func checkAllCharactersAfterRound(heroes: inout [Hero], enemies: inout [Enemy]) {
+        print("-----------------------------------------------------")
+        print("\n🌟 Checking the status of characters 🌟")
+        
+        // Удаляем мертвых героев из heroArray
+        heroes.removeAll { hero in
+            hero.checkIfAlive()  // Проверяем, жив ли герой
+            if !hero.isLive {
+                print("💔 Hero \(hero.name) is dead.")
+                return true  // Возвращаем true, если герой мертв (будет удален)
+            }
+            return false  // Герой жив, не удаляем
+        }
+        
+        // Удаляем мертвых врагов из enemyArray
+        enemies.removeAll { enemy in
+            enemy.checkIfAlive()  // Проверяем, жив ли враг
+            if !enemy.isLive {
+                print("💔 Enemy \(enemy.name) is dead.")
+                return true  // Возвращаем true, если враг мертв (будет удален)
+            } else {
+                print("✨ Enemy \(enemy.name) is alive with \(enemy.HP) HP.")
+                return false  // Враг жив, не удаляем
+            }
+        }
+        
+        print("-----------------------------------------------------")
+        
+        // Выводим информацию о живых героях
+        if heroes.isEmpty {
+            print("\n⚔️ All heroes are dead!")
+        } else {
+            print("\n✅ Total living heroes: \(heroes.count)")
+        }
+        
+        // Выводим информацию о живых врагах
+        if enemies.isEmpty {
+            print("\n⚔️ All enemies are dead!")
+        } else {
+            print("\n✅ Total living enemies: \(enemies.count)")
         }
     }
     
