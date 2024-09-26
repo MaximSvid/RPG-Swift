@@ -26,6 +26,7 @@ class BattleLogic {
     let enemyBag = EnemyBag(healingAllEnemy: 1, plusPowerOnAllEnemy: 1) // Инициализация сумки с 4 зельями лечения и 2 зельями силы
     
     func playRound () {
+        //hallo
         
         var roundNumber: Int = 1
         startGameMessage()
