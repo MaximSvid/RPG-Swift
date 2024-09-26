@@ -1,4 +1,4 @@
 import Foundation
 
-let game = BattleLogic()
+let game = BattleLogic(animation: Animation())
 game.playRound()

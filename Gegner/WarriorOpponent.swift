@@ -24,17 +24,17 @@ class WarriorOpponent: Enemy {
         // Attack a single hero
         if let oneHero = singleAttackTarget {
             oneHero.HP -= damage
-            print("💣 \(oneHero.name) was caught off guard by a dangerous blow, taking \(damage) damage! \(oneHero.name) now has \(oneHero.HP) HP remaining.")
+            print("💣 \(oneHero.name) was caught off guard by a dangerous blow, taking \(damage) damage! \(oneHero.name) now has \(oneHero.HP) HP remaining.".warriorOpponentBorder())
             print("-----------------------------------------------------")
         }
         
         // 20% chance to attack all heroes
         if hitAll {
-            print("⚔️ A menacing attack strikes all heroes in its path!")
+            print("⚔️ A menacing attack strikes all heroes in its path!".warriorOpponentBorder())
             print("-----------------------------------------------------")
             for hero in heroes {
                 hero.HP -= damage
-                print("🥴 \(hero.name) received a hit, losing \(damage) health! Current HP: \(hero.HP).")            }
+                print("🥴 \(hero.name) received a hit, losing \(damage) health! Current HP: \(hero.HP).".warriorOpponentBorder())            }
         }
         print("-----------------------------------------------------")
     }
@@ -55,7 +55,7 @@ class WarriorOpponent: Enemy {
     
     
     func chooseAttackWarriorOpponent(hero: Hero, heroes: [Hero], bag: EnemyBag) {
-        print("\n🔪 \(name) is preparing to attack! Choose an action:")
+        print("\n🔪 \(name) is preparing to attack! Choose an action:".warriorOpponentBorder())
         print("[1] ⚔️ Basic Attack")
         print("[2] ⚔️ Dangerous Attack")
         

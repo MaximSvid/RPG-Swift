@@ -26,7 +26,7 @@ class Doctor: Hero {
         let recoveryAmount = 40
         for hero in heroes {
             hero.HP += recoveryAmount
-            print("💖 \(name) channels their energy to heal \(hero.name) for \(recoveryAmount) HP! \(hero.name) now stands strong with \(hero.HP) HP.")
+            print("💖 \(name) channels their energy to heal \(hero.name) for \(recoveryAmount) HP! \(hero.name) now stands strong with \(hero.HP) HP.".doctorBorder())
             print("-----------------------------------------------------")
         }
     }
@@ -34,7 +34,7 @@ class Doctor: Hero {
     func doctorAttack(opponent: Enemy)  {
         let damage = attack
         opponent.HP -= damage
-        print("💥 A powerful blow from the Doctor strikes \(opponent.name), inflicting \(damage) damage! \(opponent.name) now stands with \(opponent.HP) HP.")
+        print("💥 A powerful blow from the Doctor strikes \(opponent.name), inflicting \(damage) damage! \(opponent.name) now stands with \(opponent.HP) HP.".doctorBorder())
         print("-----------------------------------------------------")
     }
     
@@ -65,7 +65,7 @@ class Doctor: Hero {
     
     
     func chooseAttackDoctor(opponent: Enemy, bag: HeroesBag, heroes: [Hero]) {
-        print("\n🩺 \(name) is preparing to attack! Choose an action:")
+        print("\n🩺 \(name) is preparing to attack! Choose an action:".doctorBorder())
         print("[1] 💊 Heal all Heroes")
         print("[2] ⚔️ Attack with Medical Skills")
         

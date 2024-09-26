@@ -25,7 +25,7 @@ class Hero: AttackOnEnemy {
         let damage = 50
         for enemy in enemies {
             enemy.HP -= damage
-            print("⚔️ \(name) attacked \(enemy.name) and dealt \(damage) damage! 💥 \(enemy.name) has \(enemy.HP) health remaining.")        }
+            print("⚔️ \(name) attacked \(enemy.name) and dealt \(damage) damage! 💥 \(enemy.name) has \(enemy.HP) health remaining.".heroBorder())        }
     }
     
     

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1522C5482CA4A5370054D823 /* HeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522C5472CA4A36C0054D823 /* HeroState.swift */; };
+		154449142CA594AB00F8F68A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154449132CA593A100F8F68A /* StringExtensions.swift */; };
+		154449172CA5A46B00F8F68A /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154449162CA5A08000F8F68A /* Animation.swift */; };
+		154449192CA5E5D600F8F68A /* BattleLogicFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154449182CA5E5BE00F8F68A /* BattleLogicFunc.swift */; };
 		15BD49792CA33D110052E5DA /* AttackOnEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8EEEF2CA33755002CEA5B /* AttackOnEnemy.swift */; };
 		15BD497A2CA33D1C0052E5DA /* AttackOnHeroes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F8EEF02CA3376C002CEA5B /* AttackOnHeroes.swift */; };
 		15BD497C2CA342A10052E5DA /* BattleLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD497B2CA341710052E5DA /* BattleLogic.swift */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		1522C5472CA4A36C0054D823 /* HeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroState.swift; sourceTree = "<group>"; };
+		154449132CA593A100F8F68A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		154449162CA5A08000F8F68A /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		154449182CA5E5BE00F8F68A /* BattleLogicFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogicFunc.swift; sourceTree = "<group>"; };
 		15542F192CA18ED5001644B5 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		15542F1A2CA19057001644B5 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		15542F1B2CA19168001644B5 /* Archer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
@@ -81,6 +87,22 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		154449122CA5938C00F8F68A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				154449132CA593A100F8F68A /* StringExtensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		154449152CA5A07200F8F68A /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				154449162CA5A08000F8F68A /* Animation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		15542F152CA18CD1001644B5 /* Helden */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +136,7 @@
 		15542F182CA18D3B001644B5 /* Hilfsdateien */ = {
 			isa = PBXGroup;
 			children = (
+				154449182CA5E5BE00F8F68A /* BattleLogicFunc.swift */,
 				15BD497F2CA355130052E5DA /* EnemyBag.swift */,
 				15BD497D2CA354960052E5DA /* HeroesBag.swift */,
 			);
@@ -140,6 +163,8 @@
 		CE2F4BED2C9D636900643971 = {
 			isa = PBXGroup;
 			children = (
+				154449152CA5A07200F8F68A /* Animation */,
+				154449122CA5938C00F8F68A /* Extension */,
 				1522C5462CA4A3590054D823 /* Enum */,
 				15F8EEEE2CA30A79002CEA5B /* protocol */,
 				158DA5502CA1E63700E952E1 /* Inventar */,
@@ -224,14 +249,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				154449192CA5E5D600F8F68A /* BattleLogicFunc.swift in Sources */,
 				15F8EEE62CA30721002CEA5B /* Hero.swift in Sources */,
 				15F8EEED2CA3079E002CEA5B /* DoctorOpponent.swift in Sources */,
 				15BD497E2CA354EE0052E5DA /* HeroesBag.swift in Sources */,
+				154449172CA5A46B00F8F68A /* Animation.swift in Sources */,
 				15BD49792CA33D110052E5DA /* AttackOnEnemy.swift in Sources */,
 				15BD49802CA3551D0052E5DA /* EnemyBag.swift in Sources */,
 				15F8EEEA2CA30789002CEA5B /* Doctor.swift in Sources */,
 				1522C5482CA4A5370054D823 /* HeroState.swift in Sources */,
 				15F8EEE82CA30771002CEA5B /* Warrior.swift in Sources */,
+				154449142CA594AB00F8F68A /* StringExtensions.swift in Sources */,
 				15BD497A2CA33D1C0052E5DA /* AttackOnHeroes.swift in Sources */,
 				15F8EEE72CA30761002CEA5B /* Enemy.swift in Sources */,
 				15F8EEE92CA30780002CEA5B /* Archer.swift in Sources */,

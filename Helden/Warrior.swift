@@ -17,14 +17,14 @@ class Warrior: Hero {
     func warriorAttack (opponent: Enemy) {
         let damage = attack
         _ = opponent.HP - damage
-        print("⚔️ \(name) launched an attack on \(opponent.name) and inflicted \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.")
+        print("⚔️ \(name) launched an attack on \(opponent.name) and inflicted \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.".warriorBorder())
         print("-----------------------------------------------------")
     }
     
     func dualWarriorAttck (opponent: Enemy) {
         let damage = attack * 2
         _ = opponent.HP - damage
-        print("⚔️ \(name) unleashed a powerful dual attack on \(opponent.name), dealing a devastating \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.")
+        print("⚔️ \(name) unleashed a powerful dual attack on \(opponent.name), dealing a devastating \(damage) damage! 💥 \(opponent.name) now has \(opponent.HP) health remaining.".warriorBorder())
         print("-----------------------------------------------------")
     }
     
@@ -34,10 +34,10 @@ class Warrior: Hero {
         
         if success {
             opponent.HP -= damage
-            print("🔥 \(opponent.name) was struck by a fierce blow, suffering \(damage) damage! 🌪️ \(opponent.name) now has \(opponent.HP) HP remaining to fight another day!")
+            print("🔥 \(opponent.name) was struck by a fierce blow, suffering \(damage) damage! 🌪️ \(opponent.name) now has \(opponent.HP) HP remaining to fight another day!".warriorBorder())
             print("-----------------------------------------------------")
         } else {
-            print("⚡️ \(opponent.name) skillfully dodged the perilous attack, escaping unscathed!")
+            print("⚡️ \(opponent.name) skillfully dodged the perilous attack, escaping unscathed!".warriorBorder())
             print("-----------------------------------------------------")
         }
     }
@@ -63,7 +63,7 @@ class Warrior: Hero {
     
     
     func chooseAttackWarrior(opponent: Enemy, bag: HeroesBag) {
-        print("\n🔪 \(name) is preparing to attack! Choose an action:")
+        print("\n🔪 \(name) is preparing to attack! Choose an action:".warriorBorder())
         print("[1] ⚔️ Basic Attack")
         print("[2] ⚔️ Dual Attack")
         print("[3] ⚔️ Dangerous Attack")

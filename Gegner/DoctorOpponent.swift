@@ -24,12 +24,12 @@ class DoctorOpponent: Enemy {
                 ⚡️ \(name) is using Super Attack on \(target.name)! ⚡️
                 Damage: \(superDamage)
                 \(target.name) now has \(target.HP) HP.
-                """)
+                """.doctorOpponentBorder())
             print("-----------------------------------------------------")
         } else {
             print("""
                 ❌ \(name) can no longer use Super Attack, as all attempts have been exhausted! ❌
-                """)
+                """.doctorOpponentBorder())
             print("-----------------------------------------------------")
         }
     }
@@ -54,7 +54,7 @@ class DoctorOpponent: Enemy {
                 if self.superAttackUsed > 0 {
                     self.superAttack(target: hero) // Супер атака на героя
                 } else {
-                    print("⚡️ \(self.name) cannot use the super attack, as all super attacks have already been exhausted! ❌")
+                    print("⚡️ \(self.name) cannot use the super attack, as all super attacks have already been exhausted! ❌".doctorOpponentBorder())
                     print("-----------------------------------------------------")
                     self.attckWithWeapon(hero: hero) // Выполняем обычную атаку
                 }
@@ -77,7 +77,7 @@ class DoctorOpponent: Enemy {
     }
     
     func chooseAttackDoctorOpponent(hero: Hero, heroes: [Hero], opponents: [Enemy], bag: EnemyBag) {
-        print("\n🔪 \(name) is preparing to attack! Choose an action:")
+        print("\n🔪 \(name) is preparing to attack! Choose an action:".doctorOpponentBorder())
         print("[1] ⚔️ Basic Attack")
         print("[2] ⚡️ Super Attack (available \(superAttackUsed) times)")
         print("[3] 💉 Heal All") // Option to heal all opponents

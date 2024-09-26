@@ -23,7 +23,7 @@ class ArcherOpponent: Enemy {
         let damage = attack
         for hero in heroes {
             hero.HP -= damage
-            print("🎯 \(name) launched a powerful strike against \(hero.name), dealing \(damage) damage! \(hero.name) now has \(hero.HP) HP remaining.")
+            print("🎯 \(name) launched a powerful strike against \(hero.name), dealing \(damage) damage! \(hero.name) now has \(hero.HP) HP remaining.".archerOpponentBorder())
         }
         print("-----------------------------------------------------")
     }
@@ -31,7 +31,7 @@ class ArcherOpponent: Enemy {
     func sharpArrowOpponent (hero: Hero) {
         let damage = attack * 2
         hero.HP -= damage
-        print("🏹 \(hero.name) was struck by a sharp arrow, suffering \(damage) damage. They now have \(hero.HP) HP remaining.")
+        print("🏹 \(hero.name) was struck by a sharp arrow, suffering \(damage) damage. They now have \(hero.HP) HP remaining.".archerOpponentBorder())
         print("-----------------------------------------------------")
         
     }
@@ -51,7 +51,7 @@ class ArcherOpponent: Enemy {
     }
     
     func chooseAttackArcherOpponent(hero: Hero, heroes: [Hero], bag: EnemyBag) {
-        print("\n🔪 \(name) is preparing to attack! Choose an action:")
+        print("\n🔪 \(name) is preparing to attack! Choose an action:".archerOpponentBorder())
         print("[1] ⚔️ Basic Attack")
         print("[2] 🎯 Sharp Arrow Attack")
         print("[3] ⚔️ Attack on All Heroes")

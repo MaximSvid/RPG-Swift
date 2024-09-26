@@ -21,12 +21,12 @@ class Archer: Hero {
     func takeDamage(incomingAttack: Int) -> Int {
         // Если лучник в тени, игнорируем атаку
         if archerInShadow() {
-                print("🌑 \(name) slips into the shadows, gracefully evading the incoming attack!")
+            print("🌑 \(name) slips into the shadows, gracefully evading the incoming attack!".archerBorder())
             print("-----------------------------------------------------")
                 return 0 // Возвращаем 0 урона1
         } else {
             // Если не в тени, наносим урон
-            print("🔥 The attack lands! \(name) takes \(incomingAttack) damage.")
+            print("🔥 The attack lands! \(name) takes \(incomingAttack) damage.".archerBorder())
             print("-----------------------------------------------------")
             HP -= incomingAttack
             return incomingAttack
@@ -43,7 +43,7 @@ class Archer: Hero {
     func sharpArrow(opponent: Enemy) { // Изменено на opponent
         let damage = attack
         opponent.HP -= damage // Используем opponent вместо opponents
-        print("🏹 A sharp arrow strikes \(opponent.name), dealing \(damage) damage! \(opponent.name) now has \(opponent.HP) HP remaining.")
+        print("🏹 A sharp arrow strikes \(opponent.name), dealing \(damage) damage! \(opponent.name) now has \(opponent.HP) HP remaining.".archerBorder())
         print("-----------------------------------------------------")
     }
     
@@ -63,7 +63,7 @@ class Archer: Hero {
     }
     
     func chooseAttackArcher(opponent: Enemy, enemies: [Enemy], bag: HeroesBag) {
-        print("\n🏹 \(name) is preparing to attack! Choose an action:")
+        print("\n🏹 \(name) is preparing to attack! Choose an action:".archerBorder())
         print("[1] 🌪️ Rain of Arrows on All Enemies")
         print("[2] 🏹 Sharp Arrow")
         print("[3] 🌑 Archer in Shadow")
