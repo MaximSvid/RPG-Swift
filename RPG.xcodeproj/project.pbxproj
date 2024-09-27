@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1522C5482CA4A5370054D823 /* HeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522C5472CA4A36C0054D823 /* HeroState.swift */; };
+		1525ADC72CA6A50F007AB84A /* StrongHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525ADC62CA6A4FC007AB84A /* StrongHero.swift */; };
 		154449142CA594AB00F8F68A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154449132CA593A100F8F68A /* StringExtensions.swift */; };
 		154449172CA5A46B00F8F68A /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154449162CA5A08000F8F68A /* Animation.swift */; };
 		154449192CA5E5D600F8F68A /* BattleLogicFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154449182CA5E5BE00F8F68A /* BattleLogicFunc.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		1522C5472CA4A36C0054D823 /* HeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroState.swift; sourceTree = "<group>"; };
+		1525ADC62CA6A4FC007AB84A /* StrongHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongHero.swift; sourceTree = "<group>"; };
 		154449132CA593A100F8F68A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		154449162CA5A08000F8F68A /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		154449182CA5E5BE00F8F68A /* BattleLogicFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogicFunc.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		15542F152CA18CD1001644B5 /* Helden */ = {
 			isa = PBXGroup;
 			children = (
+				1525ADC62CA6A4FC007AB84A /* StrongHero.swift */,
 				15542F1C2CA191D6001644B5 /* Doctor.swift */,
 				15542F1B2CA19168001644B5 /* Archer.swift */,
 				15542F1A2CA19057001644B5 /* Warrior.swift */,
@@ -251,6 +254,7 @@
 			files = (
 				154449192CA5E5D600F8F68A /* BattleLogicFunc.swift in Sources */,
 				15F8EEE62CA30721002CEA5B /* Hero.swift in Sources */,
+				1525ADC72CA6A50F007AB84A /* StrongHero.swift in Sources */,
 				15F8EEED2CA3079E002CEA5B /* DoctorOpponent.swift in Sources */,
 				15BD497E2CA354EE0052E5DA /* HeroesBag.swift in Sources */,
 				154449172CA5A46B00F8F68A /* Animation.swift in Sources */,
