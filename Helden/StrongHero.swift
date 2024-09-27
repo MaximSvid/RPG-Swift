@@ -54,26 +54,43 @@ class StrongHero: Hero {
     
     
     
-    func inflictWoundAttack (target: Enemy) {
+//    func inflictWoundAttack (target: Enemy) {
+//        let damage = 20
+//        var countRound = 3
+//        
+//        if !target.isHospital  {
+//            target.isHospital = true
+//            target.HP -= damage
+//            target.woundRoundsLeft -= countRound
+////            countRound -= 1
+//            print("💥 \(target.name) is wounded! They lose \(damage) HP. Remaining HP: \(target.HP).💥")
+//            print("⏳ The wound will last for 3 rounds.⏳")
+//            
+//            if countRound == 0 {
+//                target.isHospital = false
+//                print("✅ \(target.name) has recovered from the wound.✅")            }
+//            print()
+//        } else {
+//            target.HP -= damage
+//            print("💥 \(target.name) is still wounded! They lose \(damage) HP. Remaining HP: \(target.HP).")        }
+//    }
+    
+    
+    func inflictWoundAttack(target: Enemy) {
         let damage = 20
-        var countRound = 3
-        
-        if !target.isHospital  {
+        let totalWoundRounds = 3
+
+        if !target.isHospital {
             target.isHospital = true
+            target.woundRoundsLeft = totalWoundRounds // Инициализируем количество раундов ранения
             target.HP -= damage
-            countRound -= 1
             print("💥 \(target.name) is wounded! They lose \(damage) HP. Remaining HP: \(target.HP).💥")
-            print("⏳ The wound will last for 3 rounds.⏳")
-            
-            if countRound == 0 {
-                target.isHospital = false
-                print("✅ \(target.name) has recovered from the wound.✅")            }
-            print()
+            print("⏳ The wound will last for \(totalWoundRounds) rounds.⏳")
         } else {
             target.HP -= damage
-            print("💥 \(target.name) is still wounded! They lose \(damage) HP. Remaining HP: \(target.HP).")        }
+            print("💥 \(target.name) is still wounded! They lose \(damage) HP. Remaining HP: \(target.HP).")
+        }
     }
-    
     override func attackAllEnemies(enemies: [Enemy]) {
         super.attackAllEnemies(enemies: enemies)
     }

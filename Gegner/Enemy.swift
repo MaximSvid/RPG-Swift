@@ -7,25 +7,26 @@
 
 class Enemy: AttackOnHeroes {
     var name: String
-        var HP: Int
-        var attack: Int
-        var isLive: Bool = true
+    var HP: Int
+    var attack: Int
+    var isLive: Bool = true
     var isHospital: Bool = false
+    var woundRoundsLeft: Int = 0 // Добавляем свойство для отслеживания ранений
+
     
     init(name: String, HP: Int, attack: Int, isLive: Bool, isHospital: Bool) {
         self.name = name
         self.HP = HP
         self.attack = attack
         self.isLive = isLive
-        self.isHospital
     }
     
     func checkIfAlive() {
-           if HP <= 0 {
-               isLive = false
-//               print("💔 Alas, \(name) has fallen. They are no longer among the living.")
-           }
-       }
+        if HP <= 0 {
+            isLive = false
+            //               print("💔 Alas, \(name) has fallen. They are no longer among the living.")
+        }
+    }
     
     //protocol
     func attckWithWeapon (hero: Hero) {

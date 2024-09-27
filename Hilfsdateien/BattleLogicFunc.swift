@@ -111,7 +111,7 @@ class BattleLogicFunc {
             }
         }
     }
-        
+    
     func heroesAttack(bag: HeroesBag) {
         for hero in heroArray {
             if hero.HP > 0 {
@@ -199,6 +199,19 @@ class BattleLogicFunc {
                 print("✨ Enemy \(enemy.name) is alive with \(enemy.HP) HP.")
                 return false  // Враг жив, не удаляем
             }
+            
+            // Проверяем, ранен ли враг
+            if enemy.isHospital {
+                enemy.woundRoundsLeft -= 1 // Уменьшаем количество оставшихся раундов
+                if enemy.woundRoundsLeft <= 0 {
+                    enemy.isHospital = false
+                    print("✅ \(enemy.name) has recovered from the wound.")
+                } else {
+                    print("⏳ \(enemy.name) is still wounded for \(enemy.woundRoundsLeft) more rounds.")
+                }
+            }
+            
+            return false
         }
         
         print("-----------------------------------------------------")
@@ -218,6 +231,6 @@ class BattleLogicFunc {
         }
     }
     
-
+    
     
 }

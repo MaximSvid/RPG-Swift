@@ -26,7 +26,7 @@ class BattleLogic: BattleLogicFunc {
         self.myAnimation = animation
         
         var strongHero = StrongHero(name: "David", HP: 300, maxHP: 300, attack: 70, isLive: true, callTheBoss: false)
-        
+         
         
         self.heroWarrior = Warrior (name: "King Artur", HP: 200, attack: 35, isLive: true, twoAttack: 3, boss: strongHero)
         

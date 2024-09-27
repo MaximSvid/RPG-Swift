@@ -6,7 +6,7 @@
 //
 
 class DoctorOpponent: Enemy {
-    var superAttackUsed: Int = 3 // Свойство для отслеживания, была ли выполнена супер атака
+    var superAttackUsed: Int = 1 // Свойство для отслеживания, была ли выполнена супер атака
     
     
     override init(name: String, HP: Int, attack: Int, isLive: Bool, isHospital: Bool = false) {
@@ -16,7 +16,7 @@ class DoctorOpponent: Enemy {
     // Супер сильная атака (можно выполнить только один раз за игру)
     func superAttack(target: Hero) {
         if superAttackUsed > 0 {
-            let superDamage = attack * 5
+            let superDamage = attack * 3
             target.HP -= superDamage
             superAttackUsed -= 1 // Уменьшаем количество доступных супер атак
             
