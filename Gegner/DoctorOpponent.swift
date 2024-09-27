@@ -9,8 +9,8 @@ class DoctorOpponent: Enemy {
     var superAttackUsed: Int = 3 // Свойство для отслеживания, была ли выполнена супер атака
     
     
-    override init(name: String, HP: Int, attack: Int, isLive: Bool) {
-        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
+    override init(name: String, HP: Int, attack: Int, isLive: Bool, isHospital: Bool = false) {
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive, isHospital: isHospital)
     }
     
     // Супер сильная атака (можно выполнить только один раз за игру)

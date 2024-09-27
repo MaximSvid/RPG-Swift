@@ -10,12 +10,14 @@ class Enemy: AttackOnHeroes {
         var HP: Int
         var attack: Int
         var isLive: Bool = true
+    var isHospital: Bool = false
     
-    init(name: String, HP: Int, attack: Int, isLive: Bool) {
+    init(name: String, HP: Int, attack: Int, isLive: Bool, isHospital: Bool) {
         self.name = name
         self.HP = HP
         self.attack = attack
         self.isLive = isLive
+        self.isHospital
     }
     
     func checkIfAlive() {

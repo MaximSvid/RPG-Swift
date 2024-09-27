@@ -9,8 +9,26 @@ import Foundation
 
 class BattleLogic: BattleLogicFunc {
     
+    var myAnimation: Animation
+    
+    var heroWarrior: Warrior
+    
+    var heroArcher = Archer (name: "Falconer", HP: 130, attack: 30, isLive: true, shadow: 2)
+    var heroDoctor = Doctor (name: "Tim", HP: 100, attack: 50, isLive: true, strengthVaccine: false)
+    
+    
+    
+    var enemyWarrior = WarriorOpponent(name: "Goliaf", HP: 250, attack: 50, isLive: true)
+    var enemyArcher = ArcherOpponent(name: "Shooter", HP: 150, attack: 25, isLive: true)
+    var enemyDortor = DoctorOpponent(name: "Mariarti", HP: 70, attack: 40, isLive: true)
+    
     init(animation: Animation) {
         self.myAnimation = animation
+        
+        var strongHero = StrongHero(name: "David", HP: 300, maxHP: 300, attack: 70, isLive: true, callTheBoss: false)
+        
+        
+        self.heroWarrior = Warrior (name: "King Artur", HP: 200, attack: 35, isLive: true, twoAttack: 3, boss: strongHero)
         
         super.init()
         
@@ -18,15 +36,7 @@ class BattleLogic: BattleLogicFunc {
         enemyArray = [enemyWarrior, enemyArcher, enemyDortor]
     }
     
-    var myAnimation: Animation
-    
-    var heroWarrior = Warrior (name: "King Artur", HP: 200, attack: 35, isLive: true, twoAttack: 3)
-    var heroArcher = Archer (name: "Falconer", HP: 130, attack: 30, isLive: true, shadow: 2)
-    var heroDoctor = Doctor (name: "Tim", HP: 100, attack: 50, isLive: true, strengthVaccine: false)
-    
-    var enemyWarrior = WarriorOpponent(name: "Goliaf", HP: 250, attack: 50, isLive: true)
-    var enemyArcher = ArcherOpponent(name: "Shooter", HP: 150, attack: 25, isLive: true)
-    var enemyDortor = DoctorOpponent(name: "Mariarti", HP: 70, attack: 40, isLive: true)
+   
     
     let heroesBag = HeroesBag(healing: 4, power: 2) // Инициализация сумки с 4 зельями лечения и
     let enemyBag = EnemyBag(healingAllEnemy: 1, plusPowerOnAllEnemy: 1) // Инициализация сумки с 4 зельями лечения и 2 зельями силы
@@ -62,7 +72,7 @@ class BattleLogic: BattleLogicFunc {
                 randomOpponentAttack()
             } else { // Если выбраны враги
                 opponentAttack(bag: enemyBag)
-                randomHeroesAttack(bag: heroesBag)
+                randomHeroesAttack(bag: heroesBag, enemy:enemyArcher )
             }
             
             
@@ -73,6 +83,8 @@ class BattleLogic: BattleLogicFunc {
             
         }
     }
+    
+    
 
         
 //    func chooseTeam() -> Bool {

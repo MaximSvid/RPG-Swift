@@ -7,8 +7,8 @@
 
 class WarriorOpponent: Enemy {
     
-    override init(name: String, HP: Int, attack: Int, isLive: Bool) {
-        super.init(name: name, HP: HP, attack: attack, isLive: isLive)
+    override init(name: String, HP: Int, attack: Int, isLive: Bool, isHospital: Bool = false) {
+        super.init(name: name, HP: HP, attack: attack, isLive: isLive, isHospital: isHospital)
     }
     
     override func attckWithWeapon(hero: Hero) {

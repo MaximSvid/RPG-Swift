@@ -111,29 +111,27 @@ class BattleLogicFunc {
             }
         }
     }
-    
+        
     func heroesAttack(bag: HeroesBag) {
         for hero in heroArray {
             if hero.HP > 0 {
-                // Фильтруем врагов, оставляя только тех, у кого HP больше 0
                 let aliveEnemies = enemyArray.filter { enemy in enemy.HP > 0 }
                 
-                // Проверяем, есть ли живые враги
                 if let opponent = aliveEnemies.randomElement() {
                     // Проверяем тип героя
                     if let warrior = hero as? Warrior {
-                        // Вызываем метод атаки для выбранного врага
-                        warrior.chooseAttackWarrior(opponent: opponent, bag: bag)
+                        warrior.chooseAttackWarrior(opponent: opponent, bag: bag, heroArray: &heroArray)
                     } else if let archer = hero as? Archer {
                         archer.chooseAttackArcher(opponent: opponent, enemies: enemyArray, bag: bag)
                     } else if let doctor = hero as? Doctor {
                         doctor.chooseAttackDoctor(opponent: opponent, bag: bag, heroes: heroArray)
+                    } else if let strongHero = hero as? StrongHero {  // Добавляем проверку на StrongHero
+                        strongHero.chooseAttackStrongHero(target: opponent, targets: enemyArray, heroes: heroArray)
                     }
                 }
             }
         }
     }
-    
     func opponentAttack (bag: EnemyBag) {
         for enemy in enemyArray {
             if enemy.HP > 0 {
@@ -163,7 +161,7 @@ class BattleLogicFunc {
         }
     }
     
-    func randomHeroesAttack(bag: HeroesBag) {
+    func randomHeroesAttack(bag: HeroesBag, enemy: Enemy) {
         for hero in heroArray {
             if let warrior = hero as? Warrior {
                 warrior.randomWarriorAttack(enemies: enemyArray)
@@ -171,6 +169,8 @@ class BattleLogicFunc {
                 acrher.randomArcherAttack(enemies: enemyArray)
             } else if let doctor = hero as? Doctor {
                 doctor.randomDoctorAction(enemies: enemyArray, heroes: heroArray, bag: bag)
+            } else if let superHero = hero as? StrongHero {
+                superHero.randomStrongHeroAction(enemies: enemyArray, heroes: heroArray, bag: bag, enemy: enemy)
             }
         }
     }
