@@ -4,6 +4,7 @@
 //
 //  Created by Maxim Svidrak on 26.09.24.
 //
+//
 
 import Foundation
 struct Animation {
